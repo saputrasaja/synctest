@@ -3,6 +3,7 @@ package com.supadosworks.synctest.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.oc.connection.OcConnect;
 import com.oc.model.Configuration;
+import com.oc.model.ConfigurationHelper;
 import com.supadosworks.synctest.domain.OcConfiguration;
 import com.supadosworks.synctest.repository.OcConfigurationRepository;
 import org.slf4j.Logger;
@@ -39,13 +40,7 @@ public class OcConfigurationResource {
 					.getConnection("select * from configuration");
 			ResultSet rs = oc.rs;
 			while (oc.rs.next()) {
-				Configuration c = new Configuration();
-				c.setId(rs.getLong(1));
-				c.setKey(rs.getString(2));
-				c.setValue(rs.getString(3));
-				c.setDescription(rs.getString(4));
-				c.setVersion(rs.getInt(5));
-				results.add(c);
+				results.add(Configuration.getConfig(rs));
 			}
 			OcConnect.close(oc);
 		} catch (Exception e) {
@@ -54,19 +49,24 @@ public class OcConfigurationResource {
 		return results;
 	}
 
-	private final Logger log = LoggerFactory
-			.getLogger(OcConfigurationResource.class);
+	private final Logger log = LoggerFactory.getLogger(OcConfigurationResource.class);
 
 	@Inject
 	private OcConfigurationRepository ocConfigurationRepository;
 
 	@RequestMapping(value = "/ocConfigurations", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public void put(@RequestBody List<OcConfiguration> ocConfigurations) {
-		log.debug("REST request to PUT OcConfiguration : SIZE=",
-				ocConfigurations.size());
-		for (OcConfiguration conf : ocConfigurations) {
+	public void put(@RequestBody ConfigurationHelper och) {
+		log.debug("REST request to PUT OcConfiguration : SIZE1="
+				+ och.getConfs().size() + ", SIZE2=" + och.getOcConfs().size());
+		for (OcConfiguration conf : och.getOcConfs()) {
+			log.debug("OcConfiguration key=" + conf.getKey());
 			ocConfigurationRepository.save(conf);
+		}
+
+		for (Configuration conf : och.getConfs()) {
+			log.debug("Configuration key=" + conf.getKey());
+			conf.save();
 		}
 	}
 
@@ -78,7 +78,6 @@ public class OcConfigurationResource {
 	public void create(@RequestBody OcConfiguration ocConfiguration) {
 		log.debug("REST request to save OcConfiguration : {}", ocConfiguration);
 		ocConfigurationRepository.save(ocConfiguration);
-		testConnection();
 	}
 
 	/**

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.postgresql.util.PSQLException;
+
 public class OcConnect {
 
 	public Connection c = null;
@@ -20,7 +22,10 @@ public class OcConnect {
 				"jdbc:postgresql://127.0.0.1:5432/openclinica", "openclinica",
 				"openclinica");
 		result.s = result.c.createStatement();
-		result.rs = result.s.executeQuery(query);
+		try {
+			result.rs = result.s.executeQuery(query);
+		} catch (PSQLException e) {
+		}
 		return result;
 	}
 

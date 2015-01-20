@@ -9,6 +9,9 @@ angular.module('synctestApp')
         $scope.notOnOc = null;
         $scope.notOnSync = null;
 
+        var tableTwoState = true;
+        var tableOneState = true;
+
         $scope.loadAll = function() {
             syncConfiguration.query(function(r1) {
                 $scope.confFromSync = r1;
@@ -18,21 +21,11 @@ angular.module('synctestApp')
 
                     $scope.notOnOc = generateTableOneConf();
                     $scope.notOnSync = generateTableTwoConf();
+                    
+                    $scope.titleTableOne = "Not on openclinica";
+                    $scope.titleTableTwo = "Not on synctest";
                 });
             });
-
-
-            // $.ajax({
-            //     url: "http://" + $location.host() + ":" + $rootScope.ocPort + "/api/oc/configuration"
-            // }).done(function(result) {
-            //     $scope.confFromOc = result;
-            //     OcConfiguration.query(function(result) {
-            //         $scope.confFromSync = result;
-
-            //         $scope.notOnOc = generateTableOneConf();
-            //         $scope.notOnSync = generateTableTwoConf();
-            //     });
-            // });
         };
 
         function generateTableOneConf()
@@ -69,9 +62,12 @@ angular.module('synctestApp')
         };
 
         $scope.doSync = function() {
-            console.log($scope.notOnSync);
-            console.log($scope.notOnOc);
-            syncConfiguration.saveMany($scope.notOnSync, 
+            var data = 
+            {
+                confs : $scope.notOnOc,
+                ocConfs:  $scope.notOnSync
+            }
+            syncConfiguration.saveMany(data, 
                 function(){
                     $scope.loadAll();
                     $scope.clear();
@@ -112,7 +108,6 @@ angular.module('synctestApp')
         };
 
         $scope.titleTableOne = "Not on openclinica";
-        var tableOneState = true;
         $scope.toggleTableOne = function () {
             var title;
             if (tableOneState){
@@ -127,7 +122,6 @@ angular.module('synctestApp')
         };
 
         $scope.titleTableTwo = "Not on synctest";
-        var tableTwoState = true;
         $scope.toggleTableTwo = function () {
             var title;
             if (tableTwoState){
