@@ -19,8 +19,8 @@ public class OcConnect {
 		Class.forName("org.postgresql.Driver");
 		OcConnect result = new OcConnect();
 		result.c = DriverManager.getConnection(
-				"jdbc:postgresql://127.0.0.1:5432/openclinica", "openclinica",
-				"openclinica");
+				"jdbc:postgresql://127.0.0.1:5432/openclinica", "clinica",
+				"clinica");
 		result.s = result.c.createStatement();
 		try {
 			result.rs = result.s.executeQuery(query);
