@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="synctestApp.ocConfiguration.detail.title">OcConfiguration</span> {{ocConfiguration.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.ocConfiguration.key">Key</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{ocConfiguration.key}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.ocConfiguration.value">Value</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{ocConfiguration.value}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.ocConfiguration.description">Description</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{ocConfiguration.description}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.ocConfiguration.version">Version</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{ocConfiguration.version}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="ocConfiguration"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

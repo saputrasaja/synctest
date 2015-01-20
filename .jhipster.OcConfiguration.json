@@ -1,0 +1,40 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "key",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Key",
+            "fieldNameUnderscored": "key"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Value",
+            "fieldNameUnderscored": "value"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Description",
+            "fieldNameUnderscored": "description"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "version",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Version",
+            "fieldNameUnderscored": "version"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150119182310"
+}

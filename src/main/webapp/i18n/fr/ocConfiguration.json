@@ -1,0 +1,22 @@
+{
+    "synctestApp": {
+        "ocConfiguration" : {
+            "home": {
+                "title": "OcConfigurations",
+                "createLabel": "Créer un nouveau OcConfiguration",
+                "createOrEditLabel": "Créer ou éditer un OcConfiguration"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le OcConfiguration {{ id }} ?"
+            },
+            "detail": {
+                "title": "OcConfiguration"
+            },
+            "key": "Key",
+            "value": "Value",
+            "description": "Description",
+            "version": "Version"
+        }
+    }
+}
+

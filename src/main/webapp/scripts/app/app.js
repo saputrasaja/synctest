@@ -5,6 +5,7 @@ angular.module('synctestApp', ['LocalStorageModule', 'tmh.dynamicLocale',
 
     .run(function ($rootScope, $location, $http, $state, $translate, Auth, Principal, Language) {
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
+            $rootScope.ocPort = 8083;
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
 
