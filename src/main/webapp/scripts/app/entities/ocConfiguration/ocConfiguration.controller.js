@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('OcConfigurationController', function ($scope, OcConfiguration, $location, $rootScope) {
+    .controller('OcConfigurationController', function ($scope, syncConfiguration, clinicaConfiguration, $location, $rootScope) {
         $scope.confFromSync = [];
         $scope.confFromOc =[];
         $scope.tableOneConfs = [];
@@ -10,17 +10,29 @@ angular.module('synctestApp')
         $scope.notOnSync = null;
 
         $scope.loadAll = function() {
-            $.ajax({
-                url: "http://" + $location.host() + ":" + $rootScope.ocPort + "/api/oc/configuration"
-            }).done(function(result) {
-                $scope.confFromOc = result;
-                OcConfiguration.query(function(result) {
-                    $scope.confFromSync = result;
+            syncConfiguration.query(function(r1) {
+                $scope.confFromSync = r1;
+
+                clinicaConfiguration.query(function(r2) {
+                    $scope.confFromOc = r2;
 
                     $scope.notOnOc = generateTableOneConf();
                     $scope.notOnSync = generateTableTwoConf();
                 });
             });
+
+
+            // $.ajax({
+            //     url: "http://" + $location.host() + ":" + $rootScope.ocPort + "/api/oc/configuration"
+            // }).done(function(result) {
+            //     $scope.confFromOc = result;
+            //     OcConfiguration.query(function(result) {
+            //         $scope.confFromSync = result;
+
+            //         $scope.notOnOc = generateTableOneConf();
+            //         $scope.notOnSync = generateTableTwoConf();
+            //     });
+            // });
         };
 
         function generateTableOneConf()
@@ -59,7 +71,7 @@ angular.module('synctestApp')
         $scope.doSync = function() {
             console.log($scope.notOnSync);
             console.log($scope.notOnOc);
-            OcConfiguration.saveMany($scope.notOnSync, 
+            syncConfiguration.saveMany($scope.notOnSync, 
                 function(){
                     $scope.loadAll();
                     $scope.clear();
@@ -68,7 +80,7 @@ angular.module('synctestApp')
         };
 
         $scope.create = function () {
-            OcConfiguration.save($scope.ocConfiguration,
+            syncConfiguration.save($scope.ocConfiguration,
                 function () {
                     $scope.loadAll();
                     $('#saveOcConfigurationModal').modal('hide');
@@ -77,17 +89,17 @@ angular.module('synctestApp')
         };
 
         $scope.update = function (id) {
-            $scope.ocConfiguration = OcConfiguration.get({id: id});
+            $scope.ocConfiguration = syncConfiguration.get({id: id});
             $('#saveOcConfigurationModal').modal('show');
         };
 
         $scope.delete = function (id) {
-            $scope.ocConfiguration = OcConfiguration.get({id: id});
+            $scope.ocConfiguration = syncConfiguration.get({id: id});
             $('#deleteOcConfigurationConfirmation').modal('show');
         };
 
         $scope.confirmDelete = function (id) {
-            OcConfiguration.delete({id: id},
+            syncConfiguration.delete({id: id},
                 function () {
                     $scope.loadAll();
                     $('#deleteOcConfigurationConfirmation').modal('hide');

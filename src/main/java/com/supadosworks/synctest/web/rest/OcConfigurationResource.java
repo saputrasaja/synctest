@@ -1,6 +1,8 @@
 package com.supadosworks.synctest.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.oc.connection.OcConnect;
+import com.oc.model.Configuration;
 import com.supadosworks.synctest.domain.OcConfiguration;
 import com.supadosworks.synctest.repository.OcConfigurationRepository;
 import org.slf4j.Logger;
@@ -12,6 +14,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,6 +28,31 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class OcConfigurationResource {
+
+	@RequestMapping(value = "/oc/configurations", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public List<Configuration> getOcConf() {
+		log.debug(" START ");
+		List<Configuration> results = new ArrayList<Configuration>();
+		try {
+			OcConnect oc = OcConnect
+					.getConnection("select * from configuration");
+			ResultSet rs = oc.rs;
+			while (oc.rs.next()) {
+				Configuration c = new Configuration();
+				c.setId(rs.getLong(1));
+				c.setKey(rs.getString(2));
+				c.setValue(rs.getString(3));
+				c.setDescription(rs.getString(4));
+				c.setVersion(rs.getInt(5));
+				results.add(c);
+			}
+			OcConnect.close(oc);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return results;
+	}
 
 	private final Logger log = LoggerFactory
 			.getLogger(OcConfigurationResource.class);
@@ -45,6 +78,7 @@ public class OcConfigurationResource {
 	public void create(@RequestBody OcConfiguration ocConfiguration) {
 		log.debug("REST request to save OcConfiguration : {}", ocConfiguration);
 		ocConfigurationRepository.save(ocConfiguration);
+		testConnection();
 	}
 
 	/**
