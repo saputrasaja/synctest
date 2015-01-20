@@ -1,8 +1,6 @@
 # SYNCTEST
 server:
     port: 8082
-    address: localhost
-    sessionTimeout: 2000000
 
 spring:
     profiles:
