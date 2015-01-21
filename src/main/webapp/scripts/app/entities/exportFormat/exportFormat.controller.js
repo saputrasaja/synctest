@@ -10,6 +10,7 @@ angular.module('synctestApp')
         $scope.diffData = [];
 
         $scope.tableState = [];
+        $scope.toggleText = [];
 
         $scope.loadAll = function() {
             EFsyncService.query(function(r1) {
@@ -26,6 +27,9 @@ angular.module('synctestApp')
 
                     $scope.diffData[0] = generateTableData(0);
                     $scope.diffData[1] = generateTableData(1);
+
+                    $scope.toggleText[0] = 'Show All';
+                    $scope.toggleText[1] = 'Show All';
                 });
             });
         };
@@ -56,6 +60,8 @@ angular.module('synctestApp')
                 generateTableData(i);
             }
             $scope.tableState[i] = !$scope.tableState[i];
+
+            $scope.toggleText[i] = 'Show ' + ($scope.tableState[i] ? 'All' : 'Diff' );
         };
 
         $scope.preSync = function() {
