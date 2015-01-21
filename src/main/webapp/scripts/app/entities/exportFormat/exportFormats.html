@@ -38,7 +38,7 @@
                                    ng-model="exportFormat.description">
                         </div>
                         <div class="form-group">
-                            <label translate="synctestApp.exportFormat.mime_type">Mime_type</label>
+                            <label >Mime Type</label>
                             <input type="text" class="form-control"
                                    ng-model="exportFormat.mime_type">
                         </div>
@@ -117,11 +117,11 @@
     </div>
 
     <button type="submit"
-            ng-click="toggleTableOne()"
+            ng-click="toggleTable(0)"
             class="btn btn-info">
         <span class="glyphicon glyphicon-eye-open">&nbsp;Toggle</span>
     </button>
-    &nbsp;{{titleTableOne}}
+    &nbsp;{{titleTable[0]}}
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -129,12 +129,12 @@
                     <th>ID</th>
                     <th translate="synctestApp.exportFormat.name">Name</th>
                     <th translate="synctestApp.exportFormat.description">Description</th>
-                    <th translate="synctestApp.exportFormat.mime_type">Mime_type</th>
+                    <th >Mime Type</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="exportFormat in tableOneDatas">
+                <tr ng-repeat="exportFormat in tableData[0]">
                     <td>{{exportFormat.id}}</td>
                     <td>{{exportFormat.name}}</td>
                     <td>{{exportFormat.description}}</td>
@@ -162,11 +162,11 @@
     </div>
     <br/><br/>
     <button type="submit"
-            ng-click="toggleTableTwo()"
+            ng-click="toggleTable(1)"
             class="btn btn-info">
         <span class="glyphicon glyphicon-eye-open">&nbsp;Toggle</span>
     </button>
-    &nbsp;{{titleTableTwo}}
+    &nbsp;{{titleTable[1]}}
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -174,11 +174,11 @@
                     <th>ID</th>
                     <th translate="synctestApp.exportFormat.name">Name</th>
                     <th translate="synctestApp.exportFormat.description">Description</th>
-                    <th translate="synctestApp.exportFormat.mime_type">Mime_type</th>
+                    <th >Mime Type</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="exportFormat in tableTwoDatas">
+                <tr ng-repeat="exportFormat in tableData[1]">
                     <td>{{exportFormat.id}}</td>
                     <td>{{exportFormat.name}}</td>
                     <td>{{exportFormat.description}}</td>

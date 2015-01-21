@@ -1,92 +1,61 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('ExportFormatController', function ($scope, ExportFormat, ExportFormatOC) {
+    .controller('ExportFormatController', function ($scope, EFsyncService, EFocSercice) {
 
         $scope.exportFormats = [];
-        $scope.exportFormatsOC = [];
 
-        $scope.tableOneDatas = [];
-        $scope.tableTwoDatas = [];
+        $scope.titleTable = [];
+        $scope.tableData = [];
+        $scope.diffData = [];
 
-        $scope.notOnOc = [];
-        $scope.notOnSync = [];
-
-        var tableTwoState = true;
-        var tableOneState = true;
-
-        $scope.titleTableOne = "Not on openclinica";
-        $scope.titleTableTwo = "Not on synctest";
+        $scope.tableState = [];
 
         $scope.loadAll = function() {
-            ExportFormat.query(function(r1) {
-               $scope.exportFormats = r1;
+            EFsyncService.query(function(r1) {
+               $scope.exportFormats[0] = r1;
 
-                ExportFormatOC.query(function(r2) {
-                   $scope.exportFormatsOC = r2;
+                EFocSercice.query(function(r2) {
+                   $scope.exportFormats[1] = r2;
 
-                    $scope.titleTableOne = "Not on openclinica";
-                    $scope.titleTableTwo = "Not on synctest";
+                    $scope.titleTable[0] = "Not on openclinica";
+                    $scope.titleTable[1] = "Not on synctest";
 
-                    tableTwoState = true;
-                    tableOneState = true;
+                    $scope.tableState[0] = true;
+                    $scope.tableState[1] = true;
 
-                    $scope.notOnOc = generateTableOneEF();
-                    $scope.notOnSync = generateTableTwoEF();
+                    $scope.diffData[0] = generateTableData(0);
+                    $scope.diffData[1] = generateTableData(1);
                 });
             });
         };
         $scope.loadAll();
 
-        function generateTableOneEF()
+        function generateTableData(tableNumber)
         {
-
-            $scope.tableOneDatas = _.filter($scope.exportFormats, function(sync)
+            var tnReverse = tableNumber == 1 ? 0 : 1;
+            $scope.tableData[tableNumber] = _.filter($scope.exportFormats[tableNumber], function(sync)
             {
-                var finded = _.find($scope.exportFormatsOC, function(oc)
+                var finded = _.find($scope.exportFormats[tnReverse], function(oc)
                 {
                     return oc.id === sync.id;
                 });
                 return !finded;
 
             });
-            return $scope.tableOneDatas;
+            return $scope.tableData[tableNumber];
         };
 
-        function generateTableTwoEF()
-        {
-            $scope.tableTwoDatas = _.filter($scope.exportFormatsOC, function(sync)
-            {
-                var finded = _.find($scope.exportFormats, function(oc)
-                {
-                    return oc.id === sync.id;
-                });
-                return !finded;
+        $scope.toggleTable = function (i) {
+            if ($scope.tableState[i]){
 
-            });
-            return $scope.tableTwoDatas;
-        };
-
-        $scope.toggleTableOne = function () {
-            if (tableOneState){
-                $scope.titleTableOne = "All row on synctest";
-                $scope.tableOneDatas = $scope.exportFormats;
+                $scope.titleTable[i] = 'All row on ' + (i === 0 ? 'synctest' : 'openclinica');
+                $scope.tableData[i] = $scope.exportFormats[i];
             } else {
-                $scope.titleTableOne = "Not on openclinica";
-                generateTableOneEF();
+                $scope.titleTable[i] = 'Not on ' + (i === 1 ? 'synctest' : 'openclinica');
+                generateTableData(i);
             }
-            tableOneState = !tableOneState;
-        };
-
-        $scope.toggleTableTwo = function () {
-            if (tableTwoState){
-                $scope.titleTableTwo = "All row on openclinica";
-                $scope.tableTwoDatas = $scope.exportFormatsOC;
-            } else {
-                $scope.titleTableTwo = "Not on synctest";
-                generateTableTwoEF();
-            }
-            tableTwoState = !tableTwoState;
+            $scope.tableState[i] = !$scope.tableState[i];
         };
 
         $scope.preSync = function() {
@@ -96,10 +65,10 @@ angular.module('synctestApp')
         $scope.doSync = function() {
             var data = 
             {
-                ef : $scope.notOnSync,
-                efoc:  $scope.notOnOc
+                ef : $scope.diffData[1],
+                efoc:  $scope.diffData[0]
             };
-            ExportFormat.saveMany(data, 
+            EFsyncService.saveMany(data, 
                 function(){
                     $scope.loadAll();
                     $scope.clear();
@@ -108,7 +77,7 @@ angular.module('synctestApp')
         };
 
         $scope.create = function () {
-            ExportFormat.save($scope.exportFormat,
+            EFsyncService.save($scope.exportFormat,
                 function () {
                     $scope.loadAll();
                     $('#saveExportFormatModal').modal('hide');
@@ -117,17 +86,17 @@ angular.module('synctestApp')
         };
 
         $scope.update = function (id) {
-            $scope.exportFormat = ExportFormat.get({id: id});
+            $scope.exportFormat = EFsyncService.get({id: id});
             $('#saveExportFormatModal').modal('show');
         };
 
         $scope.delete = function (id) {
-            $scope.exportFormat = ExportFormat.get({id: id});
+            $scope.exportFormat = EFsyncService.get({id: id});
             $('#deleteExportFormatConfirmation').modal('show');
         };
 
         $scope.confirmDelete = function (id) {
-            ExportFormat.delete({id: id},
+            EFsyncService.delete({id: id},
                 function () {
                     $scope.loadAll();
                     $('#deleteExportFormatConfirmation').modal('hide');
