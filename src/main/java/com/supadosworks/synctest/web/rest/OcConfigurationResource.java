@@ -33,13 +33,13 @@ public class OcConfigurationResource {
 	@RequestMapping(value = "/oc/configurations", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
 	public List<Configuration> getOcConf() {
-		log.debug(" START ");
+
 		List<Configuration> results = new ArrayList<Configuration>();
 		try {
 			OcConnect oc = OcConnect
 					.getConnection("select * from configuration");
 			ResultSet rs = oc.rs;
-			while (oc.rs.next()) {
+			while (rs.next()) {
 				results.add(Configuration.getConfig(rs));
 			}
 			OcConnect.close(oc);
@@ -49,7 +49,8 @@ public class OcConfigurationResource {
 		return results;
 	}
 
-	private final Logger log = LoggerFactory.getLogger(OcConfigurationResource.class);
+	private final Logger log = LoggerFactory
+			.getLogger(OcConfigurationResource.class);
 
 	@Inject
 	private OcConfigurationRepository ocConfigurationRepository;

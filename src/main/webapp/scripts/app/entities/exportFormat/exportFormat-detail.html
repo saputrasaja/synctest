@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="synctestApp.exportFormat.detail.title">ExportFormat</span> {{exportFormat.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.exportFormat.name">Name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{exportFormat.name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.exportFormat.description">Description</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{exportFormat.description}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.exportFormat.mime_type">Mime_type</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{exportFormat.mime_type}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="exportFormat"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

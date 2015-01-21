@@ -1,0 +1,20 @@
+{
+    "synctestApp": {
+        "exportFormat" : {
+            "home": {
+                "title": "ExportFormats",
+                "createLabel": "Create a new ExportFormat",
+                "createOrEditLabel": "Create or edit a ExportFormat"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete ExportFormat {{ id }}?"
+            },
+            "detail": {
+                "title": "ExportFormat"
+            },
+            "name": "Name",
+            "description": "Description",
+            "mime_type": "Mime_type"
+        }
+    }
+}

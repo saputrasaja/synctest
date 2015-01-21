@@ -1,19 +1,17 @@
 'use strict';
 
 angular.module('synctestApp')
-    .factory('clinicaConfiguration', function ($resource) {
-        return $resource('api/oc/configurations', {}, {
+    .factory('ExportFormatOC', function ($resource) {
+        return $resource('api/oc/exportformat', {}, {
             'query': { method: 'GET', isArray: true}
         });
     })
-    .factory('syncConfiguration', function ($resource) {
-        return $resource('api/ocConfigurations/:id', {}, {
+    .factory('ExportFormat', function ($resource) {
+        return $resource('api/exportFormats/:id', {}, {
             'query': { method: 'GET', isArray: true},
-            'get': 
-            {
+            'get': {
                 method: 'GET',
-                transformResponse: function (data) 
-                {
+                transformResponse: function (data) {
                     data = angular.fromJson(data);
                     return data;
                 }

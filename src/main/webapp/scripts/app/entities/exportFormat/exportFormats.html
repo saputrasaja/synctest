@@ -1,0 +1,196 @@
+<div>
+
+    <h2>Table Export Format</h2>
+
+    <!--
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveExportFormatModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="synctestApp.exportFormat.home.createLabel">Create a new ExportFormat</span>
+    </button>
+    -->
+    <div class="modal fade" id="saveExportFormatModal" tabindex="-1" role="dialog" aria-labelledby="myExportFormatLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myExportFormatLabel" translate="synctestApp.exportFormat.home.createOrEditLabel">Create or edit a ExportFormat</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="exportFormat.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="synctestApp.exportFormat.name">Name</label>
+                            <input type="text" class="form-control"
+                                   ng-model="exportFormat.name">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.exportFormat.description">Description</label>
+                            <input type="text" class="form-control"
+                                   ng-model="exportFormat.description">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.exportFormat.mime_type">Mime_type</label>
+                            <input type="text" class="form-control"
+                                   ng-model="exportFormat.mime_type">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteExportFormatConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(exportFormat.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="synctestApp.exportFormat.delete.question" translate-values="{id: '{{exportFormat.id}}'}">Are you sure you want to delete ExportFormat {{exportFormat.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="syncConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title">Synchronization</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            It will synchronize the data in the configuration table.
+                            <br/>
+                            {{notOnSync.length}} rows will be added on synctest.
+                            <br/>
+                            {{notOnOc.length}} rows will be added on openclinica.
+                            <br/>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary"
+                            ng-click="doSync()">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Do Sync</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit"
+            ng-click="toggleTableOne()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-eye-open">&nbsp;Toggle</span>
+    </button>
+    &nbsp;{{titleTableOne}}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="synctestApp.exportFormat.name">Name</th>
+                    <th translate="synctestApp.exportFormat.description">Description</th>
+                    <th translate="synctestApp.exportFormat.mime_type">Mime_type</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="exportFormat in tableOneDatas">
+                    <td><a ui-sref="exportFormatDetails({id:exportFormat.id})">{{exportFormat.id}}</a></td>
+                    <td>{{exportFormat.name}}</td>
+                    <td>{{exportFormat.description}}</td>
+                    <td>{{exportFormat.mime_type}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="exportFormatDetail({id:exportFormat.id})"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="update(exportFormat.id)"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(exportFormat.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/><br/>
+    <button type="submit"
+            ng-click="toggleTableTwo()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-eye-open">&nbsp;Toggle</span>
+    </button>
+    &nbsp;{{titleTableTwo}}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="synctestApp.exportFormat.name">Name</th>
+                    <th translate="synctestApp.exportFormat.description">Description</th>
+                    <th translate="synctestApp.exportFormat.mime_type">Mime_type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="exportFormat in tableTwoDatas">
+                    <td><a ui-sref="exportFormatDetails({id:exportFormat.id})">{{exportFormat.id}}</a></td>
+                    <td>{{exportFormat.name}}</td>
+                    <td>{{exportFormat.description}}</td>
+                    <td>{{exportFormat.mime_type}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<button type="submit"
+        ng-click="preSync()"
+        class="btn btn-primary">
+    <span class="glyphicon glyphicon-refresh">&nbsp;Sync</span>
+</button>

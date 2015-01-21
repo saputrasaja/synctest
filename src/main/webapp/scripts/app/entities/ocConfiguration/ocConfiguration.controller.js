@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('OcConfigurationController', function ($scope, syncConfiguration, clinicaConfiguration, $location, $rootScope) {
+    .controller('OcConfigurationController', function ($scope, syncConfiguration, clinicaConfiguration) {
         $scope.confFromSync = [];
         $scope.confFromOc =[];
         $scope.tableOneConfs = [];
@@ -12,18 +12,25 @@ angular.module('synctestApp')
         var tableTwoState = true;
         var tableOneState = true;
 
+        $scope.titleTableOne = "Not on openclinica";
+        $scope.titleTableTwo = "Not on synctest";
+
         $scope.loadAll = function() {
             syncConfiguration.query(function(r1) {
                 $scope.confFromSync = r1;
 
                 clinicaConfiguration.query(function(r2) {
                     $scope.confFromOc = r2;
+                    
+                    tableTwoState = true;
+                    tableOneState = true;
 
                     $scope.notOnOc = generateTableOneConf();
                     $scope.notOnSync = generateTableTwoConf();
                     
                     $scope.titleTableOne = "Not on openclinica";
                     $scope.titleTableTwo = "Not on synctest";
+
                 });
             });
         };
@@ -66,7 +73,7 @@ angular.module('synctestApp')
             {
                 confs : $scope.notOnOc,
                 ocConfs:  $scope.notOnSync
-            }
+            };
             syncConfiguration.saveMany(data, 
                 function(){
                     $scope.loadAll();
@@ -107,9 +114,7 @@ angular.module('synctestApp')
             $scope.ocConfiguration = {key: null, value: null, description: null, version: null, id: null};
         };
 
-        $scope.titleTableOne = "Not on openclinica";
         $scope.toggleTableOne = function () {
-            var title;
             if (tableOneState){
                 $scope.titleTableOne = "All row on synctest";
                 $scope.tableOneConfs = $scope.confFromSync;
@@ -120,10 +125,8 @@ angular.module('synctestApp')
             }
             tableOneState = !tableOneState;
         };
-
-        $scope.titleTableTwo = "Not on synctest";
+        
         $scope.toggleTableTwo = function () {
-            var title;
             if (tableTwoState){
                 $scope.titleTableTwo = "All row on openclinica";
                 $scope.tableTwoConfs = $scope.confFromOc;
