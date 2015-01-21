@@ -3,9 +3,7 @@ package com.oc.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.oc.connection.OcConnect;
-
-public class ExportFormatOC {
+public class ExportFormatOC extends AbstractOcModel{
 
 	private Long id;
 
@@ -76,14 +74,4 @@ public class ExportFormatOC {
 		sb.append(")");
 		return sb.toString();
 	}
-	
-	public void save() {
-		try {
-			OcConnect oc = OcConnect.getConnection(getQueryInsert());
-			OcConnect.close(oc);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 }

@@ -3,9 +3,7 @@ package com.oc.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.oc.connection.OcConnect;
-
-public class Configuration {
+public class Configuration extends AbstractOcModel{
 	private Long id;
 
 	private String key;
@@ -81,14 +79,5 @@ public class Configuration {
 		sb.append("'" + this.version + "'");
 		sb.append(")");
 		return sb.toString();
-	}
-
-	public void save() {
-		try {
-			OcConnect oc = OcConnect.getConnection(getQueryInsert());
-			OcConnect.close(oc);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 }
