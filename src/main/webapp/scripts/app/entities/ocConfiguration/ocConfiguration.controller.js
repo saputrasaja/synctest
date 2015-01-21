@@ -21,7 +21,7 @@ angular.module('synctestApp')
 
                 clinicaConfiguration.query(function(r2) {
                     $scope.confFromOc = r2;
-                    
+
                     tableTwoState = true;
                     tableOneState = true;
 
@@ -41,7 +41,7 @@ angular.module('synctestApp')
             {
                 var finded = _.find($scope.confFromOc, function(oc)
                 {
-                    return oc.key === sync.key;
+                    return oc.id === sync.id;
                 });
                 return !finded;
 
@@ -55,7 +55,7 @@ angular.module('synctestApp')
             {
                 var finded = _.find($scope.confFromSync, function(sync)
                 {
-                    return oc.key === sync.key;
+                    return oc.id === sync.id;
                 });
                 return !finded;
             });

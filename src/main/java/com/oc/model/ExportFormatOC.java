@@ -63,8 +63,8 @@ public class ExportFormatOC {
 	public String getQueryInsert() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("INSERT INTO export_format values(");
-		sb.append("nextval('export_format_export_format_id_seq'), ");
-		sb.append("'");
+		sb.append(id);
+		sb.append(", '");
 		sb.append(name);
 		sb.append("',");
 		sb.append("'");

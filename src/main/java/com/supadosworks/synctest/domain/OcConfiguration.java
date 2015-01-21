@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class OcConfiguration implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "key")

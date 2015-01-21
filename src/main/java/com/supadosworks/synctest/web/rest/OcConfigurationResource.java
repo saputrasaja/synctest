@@ -61,6 +61,7 @@ public class OcConfigurationResource {
 		log.debug("REST request to PUT OcConfiguration : SIZE1="
 				+ och.getConfs().size() + ", SIZE2=" + och.getOcConfs().size());
 		for (OcConfiguration conf : och.getOcConfs()) {
+			log.debug("OcConfiguration id=" + conf.getId());
 			log.debug("OcConfiguration key=" + conf.getKey());
 			ocConfigurationRepository.save(conf);
 		}

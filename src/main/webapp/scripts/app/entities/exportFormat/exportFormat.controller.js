@@ -45,7 +45,7 @@ angular.module('synctestApp')
             {
                 var finded = _.find($scope.exportFormatsOC, function(oc)
                 {
-                    return oc.name === sync.name && oc.mime_type === sync.mime_type && oc.description === sync.description;
+                    return oc.id === sync.id;
                 });
                 return !finded;
 
@@ -59,7 +59,7 @@ angular.module('synctestApp')
             {
                 var finded = _.find($scope.exportFormats, function(oc)
                 {
-                    return oc.name === sync.name && oc.mime_type === sync.mime_type && oc.description === sync.description;
+                    return oc.id === sync.id;
                 });
                 return !finded;
 

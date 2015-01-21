@@ -13,7 +13,6 @@ public class ExportFormat implements Serializable {
 
     @Id
     @Column(name = "export_format_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "name")

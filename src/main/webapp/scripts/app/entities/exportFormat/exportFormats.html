@@ -135,7 +135,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="exportFormat in tableOneDatas">
-                    <td><a ui-sref="exportFormatDetails({id:exportFormat.id})">{{exportFormat.id}}</a></td>
+                    <td>{{exportFormat.id}}</td>
                     <td>{{exportFormat.name}}</td>
                     <td>{{exportFormat.description}}</td>
                     <td>{{exportFormat.mime_type}}</td>
@@ -179,7 +179,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="exportFormat in tableTwoDatas">
-                    <td><a ui-sref="exportFormatDetails({id:exportFormat.id})">{{exportFormat.id}}</a></td>
+                    <td>{{exportFormat.id}}</td>
                     <td>{{exportFormat.name}}</td>
                     <td>{{exportFormat.description}}</td>
                     <td>{{exportFormat.mime_type}}</td>

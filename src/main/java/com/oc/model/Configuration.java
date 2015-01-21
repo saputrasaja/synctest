@@ -73,7 +73,8 @@ public class Configuration {
 	public String getQueryInsert() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("INSERT INTO configuration values(");
-		sb.append("nextval('configuration_id_seq'), ");
+		sb.append(id);
+		sb.append(", ");
 		sb.append("'" + this.key + "', ");
 		sb.append("'" + this.value + "', ");
 		sb.append("'" + this.description + "', ");
