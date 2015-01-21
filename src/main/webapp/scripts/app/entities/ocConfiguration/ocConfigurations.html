@@ -73,9 +73,9 @@
                         <p>
                             It will synchronize the data in the configuration table.
                             <br/>
-                            {{notOnSync.length}} rows will be added on synctest.
+                            {{diffData[1].length}} rows will be added on synctest.
                             <br/>
-                            {{notOnOc.length}} rows will be added on openclinica.
+                            {{diffData[0].length}} rows will be added on openclinica.
                             <br/>
                         </p>
                     </div>
@@ -122,11 +122,11 @@
     <br/>
     
     <button type="submit"
-            ng-click="toggleTableOne()"
+            ng-click="toggleTable(0)"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-eye-open">&nbsp;Toggle</span>
+        <span class="glyphicon glyphicon-eye-open">&nbsp;{{toggleText[0]}}</span>
     </button>
-    &nbsp;{{titleTableOne}}
+    &nbsp;{{titleTable[0]}}
     <!-- Table database synctest -->
     <div class="table-responsive">
         <table class="table table-striped">
@@ -141,7 +141,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="ocConfiguration in tableOneConfs">
+                <tr ng-repeat="ocConfiguration in tableData[0]">
                     <td>{{ocConfiguration.id}}</td>
                     <td>{{ocConfiguration.key}}</td>
                     <td>{{ocConfiguration.value}}</td>
@@ -170,11 +170,11 @@
     </div>
     <br/>
     <button type="submit"
-            ng-click="toggleTableTwo()"
+            ng-click="toggleTable(1)"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-eye-open">&nbsp;Toggle</span>
+        <span class="glyphicon glyphicon-eye-open">&nbsp;{{toggleText[1]}}</span>
     </button>
-    &nbsp;{{titleTableTwo}}
+    &nbsp;{{titleTable[1]}}
     <!-- Table from openclinica -->
     <div class="table-responsive">
         <table class="table table-striped">
@@ -189,7 +189,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="ocConfiguration in tableTwoConfs">
+                <tr ng-repeat="ocConfiguration in tableData[1]">
                     <td>{{ocConfiguration.id}}</td>
                     <td>{{ocConfiguration.key}}</td>
                     <td>{{ocConfiguration.value}}</td>

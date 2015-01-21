@@ -8,7 +8,6 @@ angular.module('synctestApp')
         $scope.titleTable = [];
         $scope.tableData = [];
         $scope.diffData = [];
-
         $scope.tableState = [];
         $scope.toggleText = [];
 
@@ -33,7 +32,6 @@ angular.module('synctestApp')
                 });
             });
         };
-        $scope.loadAll();
 
         function generateTableData(tableNumber)
         {
@@ -49,6 +47,8 @@ angular.module('synctestApp')
             });
             return $scope.tableData[tableNumber];
         };
+
+        $scope.loadAll();
 
         $scope.toggleTable = function (i) {
             if ($scope.tableState[i]){

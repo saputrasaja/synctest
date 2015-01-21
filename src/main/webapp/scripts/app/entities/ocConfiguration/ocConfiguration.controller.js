@@ -1,68 +1,69 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('OcConfigurationController', function ($scope, syncConfiguration, clinicaConfiguration) {
-        $scope.confFromSync = [];
-        $scope.confFromOc =[];
-        $scope.tableOneConfs = [];
-        $scope.tableTwoConfs = [];
-        $scope.notOnOc = null;
-        $scope.notOnSync = null;
+    .controller('OcConfigurationController', function ($scope, ConfSyncService, ConfOcService) {
 
-        var tableTwoState = true;
-        var tableOneState = true;
+        $scope.configurations = [];
 
-        $scope.titleTableOne = "Not on openclinica";
-        $scope.titleTableTwo = "Not on synctest";
+        $scope.titleTable = [];
+        $scope.tableData = [];
+        $scope.diffData = [];
+        $scope.tableState = [];
+        $scope.toggleText = [];
 
         $scope.loadAll = function() {
-            syncConfiguration.query(function(r1) {
-                $scope.confFromSync = r1;
+            ConfSyncService.query(function(r1) {
+                $scope.configurations[0] = r1;
 
-                clinicaConfiguration.query(function(r2) {
-                    $scope.confFromOc = r2;
+                ConfOcService.query(function(r2) {
+                    $scope.configurations[1] = r2;
 
-                    tableTwoState = true;
-                    tableOneState = true;
+                    $scope.titleTable[0] = "Not on openclinica";
+                    $scope.titleTable[1] = "Not on synctest";
 
-                    $scope.notOnOc = generateTableOneConf();
-                    $scope.notOnSync = generateTableTwoConf();
-                    
-                    $scope.titleTableOne = "Not on openclinica";
-                    $scope.titleTableTwo = "Not on synctest";
+                    $scope.tableState[0] = true;
+                    $scope.tableState[1] = true;
+
+                    $scope.diffData[0] = generateTableData(0);
+                    $scope.diffData[1] = generateTableData(1);
+
+                    $scope.toggleText[0] = 'Show All';
+                    $scope.toggleText[1] = 'Show All';
 
                 });
             });
         };
 
-        function generateTableOneConf()
+        function generateTableData(tableNumber)
         {
-            $scope.tableOneConfs = _.filter($scope.confFromSync, function(sync)
+            var tnReverse = tableNumber == 1 ? 0 : 1;
+            $scope.tableData[tableNumber] = _.filter($scope.configurations[tableNumber], function(sync)
             {
-                var finded = _.find($scope.confFromOc, function(oc)
+                var finded = _.find($scope.configurations[tnReverse], function(oc)
                 {
                     return oc.id === sync.id;
                 });
                 return !finded;
 
             });
-            return $scope.tableOneConfs;
-        };
-
-        function generateTableTwoConf()
-        {
-            $scope.tableTwoConfs = _.filter($scope.confFromOc, function(oc)
-            {
-                var finded = _.find($scope.confFromSync, function(sync)
-                {
-                    return oc.id === sync.id;
-                });
-                return !finded;
-            });
-            return $scope.tableTwoConfs;
+            return $scope.tableData[tableNumber];
         };
 
         $scope.loadAll();
+
+        $scope.toggleTable = function (i) {
+            if ($scope.tableState[i]){
+
+                $scope.titleTable[i] = 'All row on ' + (i === 0 ? 'synctest' : 'openclinica');
+                $scope.tableData[i] = $scope.configurations[i];
+            } else {
+                $scope.titleTable[i] = 'Not on ' + (i === 1 ? 'synctest' : 'openclinica');
+                generateTableData(i);
+            }
+            $scope.tableState[i] = !$scope.tableState[i];
+
+            $scope.toggleText[i] = 'Show ' + ($scope.tableState[i] ? 'All' : 'Diff' );
+        };
 
         $scope.preSync = function() {
             $('#syncConfirmation').modal('show');
@@ -71,10 +72,10 @@ angular.module('synctestApp')
         $scope.doSync = function() {
             var data = 
             {
-                confs : $scope.notOnOc,
-                ocConfs:  $scope.notOnSync
+                ocConfs : $scope.diffData[1],
+                confs:  $scope.diffData[0]
             };
-            syncConfiguration.saveMany(data, 
+            ConfSyncService.saveMany(data, 
                 function(){
                     $scope.loadAll();
                     $scope.clear();
@@ -83,7 +84,7 @@ angular.module('synctestApp')
         };
 
         $scope.create = function () {
-            syncConfiguration.save($scope.ocConfiguration,
+            ConfSyncService.save($scope.ocConfiguration,
                 function () {
                     $scope.loadAll();
                     $('#saveOcConfigurationModal').modal('hide');
@@ -92,17 +93,17 @@ angular.module('synctestApp')
         };
 
         $scope.update = function (id) {
-            $scope.ocConfiguration = syncConfiguration.get({id: id});
+            $scope.ocConfiguration = ConfSyncService.get({id: id});
             $('#saveOcConfigurationModal').modal('show');
         };
 
         $scope.delete = function (id) {
-            $scope.ocConfiguration = syncConfiguration.get({id: id});
+            $scope.ocConfiguration = ConfSyncService.get({id: id});
             $('#deleteOcConfigurationConfirmation').modal('show');
         };
 
         $scope.confirmDelete = function (id) {
-            syncConfiguration.delete({id: id},
+            ConfSyncService.delete({id: id},
                 function () {
                     $scope.loadAll();
                     $('#deleteOcConfigurationConfirmation').modal('hide');
@@ -112,28 +113,5 @@ angular.module('synctestApp')
 
         $scope.clear = function () {
             $scope.ocConfiguration = {key: null, value: null, description: null, version: null, id: null};
-        };
-
-        $scope.toggleTableOne = function () {
-            if (tableOneState){
-                $scope.titleTableOne = "All row on synctest";
-                $scope.tableOneConfs = $scope.confFromSync;
-                
-            } else {
-                $scope.titleTableOne = "Not on openclinica";
-                generateTableOneConf();
-            }
-            tableOneState = !tableOneState;
-        };
-        
-        $scope.toggleTableTwo = function () {
-            if (tableTwoState){
-                $scope.titleTableTwo = "All row on openclinica";
-                $scope.tableTwoConfs = $scope.confFromOc;
-            } else {
-                $scope.titleTableTwo = "Not on synctest";
-                generateTableTwoConf();
-            }
-            tableTwoState = !tableTwoState;
         };
     });

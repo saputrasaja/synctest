@@ -10,8 +10,8 @@ public abstract class AbstractOcModel {
 	
 	public void save() {
 		try {
-			OcConnect oc = OcConnect.getConnection(getQueryInsert());
-			OcConnect.close(oc);
+//			OcConnect oc = OcConnect.getConnection(getQueryInsert());
+//			OcConnect.close(oc);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

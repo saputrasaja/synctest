@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('synctestApp')
-    .factory('clinicaConfiguration', function ($resource) {
+    .factory('ConfOcService', function ($resource) {
         return $resource('api/oc/configurations', {}, {
             'query': { method: 'GET', isArray: true}
         });
     })
-    .factory('syncConfiguration', function ($resource) {
+    .factory('ConfSyncService', function ($resource) {
         return $resource('api/ocConfigurations/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': 
