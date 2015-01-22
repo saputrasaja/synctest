@@ -1,0 +1,20 @@
+{
+    "synctestApp": {
+        "datasetItemStatus" : {
+            "home": {
+                "title": "DatasetItemStatuss",
+                "createLabel": "Créer un nouveau DatasetItemStatus",
+                "createOrEditLabel": "Créer ou éditer un DatasetItemStatus"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le DatasetItemStatus {{ id }} ?"
+            },
+            "detail": {
+                "title": "DatasetItemStatus"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}
+

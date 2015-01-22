@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('ExportFormatController', function ($scope, EFsyncService, EFocSercice) {
+    .controller('ExportFormatController', function ($scope, ExportFormat, ExpertFormatOC) {
+        var EFsyncService = ExportFormat;
 
         $scope.exportFormats = [];
 
@@ -15,7 +16,7 @@ angular.module('synctestApp')
             EFsyncService.query(function(r1) {
                $scope.exportFormats[0] = r1;
 
-                EFocSercice.query(function(r2) {
+                ExpertFormatOC.query(function(r2) {
                    $scope.exportFormats[1] = r2;
                    console.log('$scope.exportFormats : ', $scope.exportFormats);
 

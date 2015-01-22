@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('synctestApp')
-    .factory('EFocSercice', function ($resource) {
+    .factory('ExpertFormatOC', function ($resource) {
         return $resource('api/oc/exportformat', {}, {
             'query': { method: 'GET', isArray: true}
         });
     })
-    .factory('EFsyncService', function ($resource) {
+    .factory('ExportFormat', function ($resource) {
         return $resource('api/exportFormats/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {

@@ -9,6 +9,7 @@
                 "ocConfiguration": "OcConfiguration",
                 "exportFormat": "ExportFormat",
                 "status": "Status",
+                "datasetItemStatus": "DatasetItemStatus",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {

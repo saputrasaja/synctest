@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('synctestApp')
-    .factory('SocSercice', function ($resource) {
+    .factory('StatusOC', function ($resource) {
         return $resource('api/oc/status', {}, {
             'query': { method: 'GET', isArray: true}
         });
     })
-    .factory('SsyncSercice', function ($resource) {
+    .factory('Status', function ($resource) {
         return $resource('api/statuss/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {

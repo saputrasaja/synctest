@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('OcConfigurationDetailController', function ($scope, $stateParams, syncConfiguration) {
+    .controller('OcConfigurationDetailController', function ($scope, $stateParams, OcConfiguration) {
         $scope.ocConfiguration = {};
         $scope.load = function (id) {
-            syncConfiguration.get({id: id}, function(result) {
+            OcConfiguration.get({id: id}, function(result) {
               $scope.ocConfiguration = result;
             });
         };

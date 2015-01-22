@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('StatusController', function ($scope, Status, StatusOC) {
-        var syncService = Status;
-        var ocService = StatusOC;
-
-        $scope.statuss = [];
+    .controller('DatasetItemStatusController', function ($scope, DatasetItemStatus, DatasetItemStatusOC) {
+        var syncService = DatasetItemStatus;
+        var ocService = DatasetItemStatusOC;
+        
+        $scope.datas = [];
 
         $scope.titleTable = [];
         $scope.tableData = [];
@@ -15,10 +15,10 @@ angular.module('synctestApp')
 
         $scope.loadAll = function() {
             syncService.query(function(r1) {
-                $scope.statuss[0] = r1;
+                $scope.datas[0] = r1;
 
                 ocService.query(function(r2) {
-                    $scope.statuss[1] = r2;
+                    $scope.datas[1] = r2;
 
                     $scope.titleTable[0] = "Not on openclinica";
                     $scope.titleTable[1] = "Not on synctest";
@@ -39,9 +39,9 @@ angular.module('synctestApp')
         function generateTableData(tableNumber)
         {
             var tnReverse = tableNumber == 1 ? 0 : 1;
-            $scope.tableData[tableNumber] = _.filter($scope.statuss[tableNumber], function(sync)
+            $scope.tableData[tableNumber] = _.filter($scope.datas[tableNumber], function(sync)
             {
-                var finded = _.find($scope.statuss[tnReverse], function(oc)
+                var finded = _.find($scope.datas[tnReverse], function(oc)
                 {
                     return oc.id === sync.id;
                 });
@@ -57,7 +57,7 @@ angular.module('synctestApp')
             if ($scope.tableState[i]){
 
                 $scope.titleTable[i] = 'All row on ' + (i === 0 ? 'synctest' : 'openclinica');
-                $scope.tableData[i] = $scope.statuss[i];
+                $scope.tableData[i] = $scope.datas[i];
             } else {
                 $scope.titleTable[i] = 'Not on ' + (i === 1 ? 'synctest' : 'openclinica');
                 generateTableData(i);
@@ -74,8 +74,8 @@ angular.module('synctestApp')
         $scope.doSync = function() {
             var data = 
             {
-                s : $scope.diffData[1],
-                sOc:  $scope.diffData[0]
+                data : $scope.diffData[1],
+                dataOc:  $scope.diffData[0]
             };
             syncService.saveMany(data, 
                 function(){
@@ -85,35 +85,36 @@ angular.module('synctestApp')
                 });
         };
 
+
         $scope.create = function () {
-            syncService.save($scope.status,
+            syncService.save($scope.datasetItemStatus,
                 function () {
                     $scope.loadAll();
-                    $('#saveStatusModal').modal('hide');
+                    $('#saveDatasetItemStatusModal').modal('hide');
                     $scope.clear();
                 });
         };
 
         $scope.update = function (id) {
-            $scope.status = syncService.get({id: id});
-            $('#saveStatusModal').modal('show');
+            $scope.datasetItemStatus = syncService.get({id: id});
+            $('#saveDatasetItemStatusModal').modal('show');
         };
 
         $scope.delete = function (id) {
-            $scope.status = syncService.get({id: id});
-            $('#deleteStatusConfirmation').modal('show');
+            $scope.datasetItemStatus = syncService.get({id: id});
+            $('#deleteDatasetItemStatusConfirmation').modal('show');
         };
 
         $scope.confirmDelete = function (id) {
             syncService.delete({id: id},
                 function () {
                     $scope.loadAll();
-                    $('#deleteStatusConfirmation').modal('hide');
+                    $('#deleteDatasetItemStatusConfirmation').modal('hide');
                     $scope.clear();
                 });
         };
 
         $scope.clear = function () {
-            $scope.status = {name: null, description: null, id: null};
+            $scope.datasetItemStatus = {name: null, description: null, id: null};
         };
     });

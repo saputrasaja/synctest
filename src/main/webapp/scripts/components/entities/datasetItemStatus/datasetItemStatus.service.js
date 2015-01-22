@@ -1,19 +1,17 @@
 'use strict';
 
 angular.module('synctestApp')
-    .factory('OcConfigurationOC', function ($resource) {
-        return $resource('api/oc/configurations', {}, {
+    .factory('DatasetItemStatusOC', function ($resource) {
+        return $resource('api/oc/status', {}, {
             'query': { method: 'GET', isArray: true}
         });
     })
-    .factory('OcConfiguration', function ($resource) {
-        return $resource('api/ocConfigurations/:id', {}, {
+    .factory('DatasetItemStatus', function ($resource) {
+        return $resource('api/datasetItemStatuss/:id', {}, {
             'query': { method: 'GET', isArray: true},
-            'get': 
-            {
+            'get': {
                 method: 'GET',
-                transformResponse: function (data) 
-                {
+                transformResponse: function (data) {
                     data = angular.fromJson(data);
                     return data;
                 }

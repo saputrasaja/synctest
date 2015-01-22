@@ -1,0 +1,19 @@
+{
+    "synctestApp": {
+        "datasetItemStatus" : {
+            "home": {
+                "title": "DatasetItemStatuss",
+                "createLabel": "Create a new DatasetItemStatus",
+                "createOrEditLabel": "Create or edit a DatasetItemStatus"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete DatasetItemStatus {{ id }}?"
+            },
+            "detail": {
+                "title": "DatasetItemStatus"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

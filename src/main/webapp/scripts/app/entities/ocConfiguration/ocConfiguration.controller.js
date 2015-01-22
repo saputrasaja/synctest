@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('OcConfigurationController', function ($scope, ConfSyncService, ConfOcService) {
+    .controller('OcConfigurationController', function ($scope, OcConfiguration, OcConfigurationOC) {
+        var ConfSyncService = OcConfiguration;
 
         $scope.configurations = [];
 
@@ -15,7 +16,7 @@ angular.module('synctestApp')
             ConfSyncService.query(function(r1) {
                 $scope.configurations[0] = r1;
 
-                ConfOcService.query(function(r2) {
+                OcConfigurationOC.query(function(r2) {
                     $scope.configurations[1] = r2;
 
                     $scope.titleTable[0] = "Not on openclinica";
