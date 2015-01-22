@@ -1,9 +1,8 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('ExportFormatController', function ($scope, EFsyncService, EFocSercice) {
-
-        $scope.exportFormats = [];
+    .controller('StatusController', function ($scope, SsyncSercice, SocSercice) {
+        $scope.statuss = [];
 
         $scope.titleTable = [];
         $scope.tableData = [];
@@ -12,12 +11,11 @@ angular.module('synctestApp')
         $scope.toggleText = [];
 
         $scope.loadAll = function() {
-            EFsyncService.query(function(r1) {
-               $scope.exportFormats[0] = r1;
+            SsyncSercice.query(function(r1) {
+                $scope.statuss[0] = r1;
 
-                EFocSercice.query(function(r2) {
-                   $scope.exportFormats[1] = r2;
-                   console.log('$scope.exportFormats : ', $scope.exportFormats);
+                SocSercice.query(function(r2) {
+                    $scope.statuss[1] = r2;
 
                     $scope.titleTable[0] = "Not on openclinica";
                     $scope.titleTable[1] = "Not on synctest";
@@ -30,6 +28,7 @@ angular.module('synctestApp')
 
                     $scope.toggleText[0] = 'Show All';
                     $scope.toggleText[1] = 'Show All';
+
                 });
             });
         };
@@ -37,9 +36,9 @@ angular.module('synctestApp')
         function generateTableData(tableNumber)
         {
             var tnReverse = tableNumber == 1 ? 0 : 1;
-            $scope.tableData[tableNumber] = _.filter($scope.exportFormats[tableNumber], function(sync)
+            $scope.tableData[tableNumber] = _.filter($scope.statuss[tableNumber], function(sync)
             {
-                var finded = _.find($scope.exportFormats[tnReverse], function(oc)
+                var finded = _.find($scope.statuss[tnReverse], function(oc)
                 {
                     return oc.id === sync.id;
                 });
@@ -55,7 +54,7 @@ angular.module('synctestApp')
             if ($scope.tableState[i]){
 
                 $scope.titleTable[i] = 'All row on ' + (i === 0 ? 'synctest' : 'openclinica');
-                $scope.tableData[i] = $scope.exportFormats[i];
+                $scope.tableData[i] = $scope.statuss[i];
             } else {
                 $scope.titleTable[i] = 'Not on ' + (i === 1 ? 'synctest' : 'openclinica');
                 generateTableData(i);
@@ -72,10 +71,10 @@ angular.module('synctestApp')
         $scope.doSync = function() {
             var data = 
             {
-                ef : $scope.diffData[1],
-                efoc:  $scope.diffData[0]
+                s : $scope.diffData[1],
+                sOc:  $scope.diffData[0]
             };
-            EFsyncService.saveMany(data, 
+            SsyncSercice.saveMany(data, 
                 function(){
                     $scope.loadAll();
                     $scope.clear();
@@ -84,34 +83,34 @@ angular.module('synctestApp')
         };
 
         $scope.create = function () {
-            EFsyncService.save($scope.exportFormat,
+            SsyncSercice.save($scope.status,
                 function () {
                     $scope.loadAll();
-                    $('#saveExportFormatModal').modal('hide');
+                    $('#saveStatusModal').modal('hide');
                     $scope.clear();
                 });
         };
 
         $scope.update = function (id) {
-            $scope.exportFormat = EFsyncService.get({id: id});
-            $('#saveExportFormatModal').modal('show');
+            $scope.status = SsyncSercice.get({id: id});
+            $('#saveStatusModal').modal('show');
         };
 
         $scope.delete = function (id) {
-            $scope.exportFormat = EFsyncService.get({id: id});
-            $('#deleteExportFormatConfirmation').modal('show');
+            $scope.status = SsyncSercice.get({id: id});
+            $('#deleteStatusConfirmation').modal('show');
         };
 
         $scope.confirmDelete = function (id) {
-            EFsyncService.delete({id: id},
+            SsyncSercice.delete({id: id},
                 function () {
                     $scope.loadAll();
-                    $('#deleteExportFormatConfirmation').modal('hide');
+                    $('#deleteStatusConfirmation').modal('hide');
                     $scope.clear();
                 });
         };
 
         $scope.clear = function () {
-            $scope.exportFormat = {name: null, description: null, mime_type: null, id: null};
+            $scope.status = {name: null, description: null, id: null};
         };
     });

@@ -8,6 +8,7 @@
                 "main": "Entities",
                 "ocConfiguration": "OcConfiguration",
                 "exportFormat": "ExportFormat",
+                "status": "Status",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {
