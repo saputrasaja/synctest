@@ -24,5 +24,4 @@ public class DatasetItemStatusHelper {
 	public void setData(List<DatasetItemStatus> data) {
 		this.data = data;
 	}
-
 }

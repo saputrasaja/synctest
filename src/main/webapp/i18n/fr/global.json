@@ -10,6 +10,7 @@
                 "exportFormat": "ExportFormat",
                 "status": "Status",
                 "datasetItemStatus": "DatasetItemStatus",
+                "userType": "UserType",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {
