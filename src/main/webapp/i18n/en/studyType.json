@@ -1,0 +1,19 @@
+{
+    "synctestApp": {
+        "studyType" : {
+            "home": {
+                "title": "Table Study Type",
+                "createLabel": "Create a new StudyType",
+                "createOrEditLabel": "Create or edit a StudyType"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete StudyType {{ id }}?"
+            },
+            "detail": {
+                "title": "Study Type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

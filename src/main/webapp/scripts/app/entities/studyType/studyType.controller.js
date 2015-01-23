@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('UserAccountController', function ($scope, UserAccount, UserAccountOC) {
-        var syncService = UserAccount;
-        var ocService = UserAccountOC;
+    .controller('StudyTypeController', function ($scope, StudyType, StudyTypeOC) {
+        var syncService = StudyType;
+        var ocService = StudyTypeOC;
         
         $scope.datas = [];
 
@@ -12,6 +12,8 @@ angular.module('synctestApp')
         $scope.diffData = [];
         $scope.tableState = [];
         $scope.toggleText = [];
+
+        $scope.array = [0,1]
 
         $scope.loadAll = function() {
             syncService.query(function(r1) {
@@ -86,34 +88,34 @@ angular.module('synctestApp')
         };
 
         $scope.create = function () {
-            UserAccount.save($scope.userAccount,
+            StudyType.save($scope.studyType,
                 function () {
                     $scope.loadAll();
-                    $('#saveUserAccountModal').modal('hide');
+                    $('#saveStudyTypeModal').modal('hide');
                     $scope.clear();
                 });
         };
 
         $scope.update = function (id) {
-            $scope.userAccount = UserAccount.get({id: id});
-            $('#saveUserAccountModal').modal('show');
+            $scope.studyType = StudyType.get({id: id});
+            $('#saveStudyTypeModal').modal('show');
         };
 
         $scope.delete = function (id) {
-            $scope.userAccount = UserAccount.get({id: id});
-            $('#deleteUserAccountConfirmation').modal('show');
+            $scope.studyType = StudyType.get({id: id});
+            $('#deleteStudyTypeConfirmation').modal('show');
         };
 
         $scope.confirmDelete = function (id) {
-            UserAccount.delete({id: id},
+            StudyType.delete({id: id},
                 function () {
                     $scope.loadAll();
-                    $('#deleteUserAccountConfirmation').modal('hide');
+                    $('#deleteStudyTypeConfirmation').modal('hide');
                     $scope.clear();
                 });
         };
 
         $scope.clear = function () {
-            $scope.userAccount = {user_name: null, passwd: null, first_name: null, last_name: null, email: null, active_study: null, institutional_affiliation: null, status_id: null, owner_id: null, date_created: null, date_updated: null, date_lastvisit: null, passwd_timestamp: null, passwd_challenge_question: null, passwd_challenge_answer: null, phone: null, user_type_id: null, update_id: null, enabled: null, account_non_locked: null, lock_counter: null, run_webservices: null, id: null};
+            $scope.studyType = {name: null, description: null, id: null};
         };
     });
