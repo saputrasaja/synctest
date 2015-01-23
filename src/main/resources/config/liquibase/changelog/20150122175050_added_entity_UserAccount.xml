@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <!--
+        Added the entity UserAccount.
+    -->
+    <changeSet id="20150122175050" author="jhipster">
+        <createTable tableName="T_USERACCOUNT">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_name" type="varchar(255)"/>
+            <column name="passwd" type="varchar(255)"/>
+            <column name="first_name" type="varchar(255)"/>
+            <column name="last_name" type="varchar(255)"/>
+            <column name="email" type="varchar(255)"/>
+            <column name="active_study" type="integer"/>
+            <column name="institutional_affiliation" type="varchar(255)"/>
+            <column name="status_id" type="integer"/>
+            <column name="owner_id" type="integer"/>
+            <column name="date_created" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_updated" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_lastvisit" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="passwd_timestamp" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="passwd_challenge_question" type="varchar(255)"/>
+            <column name="passwd_challenge_answer" type="varchar(255)"/>
+            <column name="phone" type="varchar(255)"/>
+            <column name="user_type_id" type="integer"/>
+            <column name="update_id" type="integer"/>
+            <column name="enabled" type="bit"/>
+            <column name="account_non_locked" type="bit"/>
+            <column name="lock_counter" type="integer"/>
+            <column name="run_webservices" type="bit"/>
+        </createTable>
+        <dropDefaultValue tableName="T_USERACCOUNT" columnName="date_created" columnDataType="datetime"/>
+
+        <dropDefaultValue tableName="T_USERACCOUNT" columnName="date_updated" columnDataType="datetime"/>
+
+        <dropDefaultValue tableName="T_USERACCOUNT" columnName="date_lastvisit" columnDataType="datetime"/>
+
+        <dropDefaultValue tableName="T_USERACCOUNT" columnName="passwd_timestamp" columnDataType="datetime"/>
+
+        
+    </changeSet>
+</databaseChangeLog>

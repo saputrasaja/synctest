@@ -1,0 +1,166 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "user_name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "User_name",
+            "fieldNameUnderscored": "user_name"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "passwd",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Passwd",
+            "fieldNameUnderscored": "passwd"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "first_name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "First_name",
+            "fieldNameUnderscored": "first_name"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "last_name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Last_name",
+            "fieldNameUnderscored": "last_name"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Email",
+            "fieldNameUnderscored": "email"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "active_study",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Active_study",
+            "fieldNameUnderscored": "active_study"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "institutional_affiliation",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Institutional_affiliation",
+            "fieldNameUnderscored": "institutional_affiliation"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "status_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Status_id",
+            "fieldNameUnderscored": "status_id"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "owner_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Owner_id",
+            "fieldNameUnderscored": "owner_id"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "date_created",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_created",
+            "fieldNameUnderscored": "date_created"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "date_updated",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_updated",
+            "fieldNameUnderscored": "date_updated"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "date_lastvisit",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_lastvisit",
+            "fieldNameUnderscored": "date_lastvisit"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "passwd_timestamp",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Passwd_timestamp",
+            "fieldNameUnderscored": "passwd_timestamp"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "passwd_challenge_question",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Passwd_challenge_question",
+            "fieldNameUnderscored": "passwd_challenge_question"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "passwd_challenge_answer",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Passwd_challenge_answer",
+            "fieldNameUnderscored": "passwd_challenge_answer"
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "phone",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Phone",
+            "fieldNameUnderscored": "phone"
+        },
+        {
+            "fieldId": 17,
+            "fieldName": "user_type_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "User_type_id",
+            "fieldNameUnderscored": "user_type_id"
+        },
+        {
+            "fieldId": 18,
+            "fieldName": "update_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Update_id",
+            "fieldNameUnderscored": "update_id"
+        },
+        {
+            "fieldId": 19,
+            "fieldName": "enabled",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Enabled",
+            "fieldNameUnderscored": "enabled"
+        },
+        {
+            "fieldId": 20,
+            "fieldName": "account_non_locked",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Account_non_locked",
+            "fieldNameUnderscored": "account_non_locked"
+        },
+        {
+            "fieldId": 21,
+            "fieldName": "lock_counter",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Lock_counter",
+            "fieldNameUnderscored": "lock_counter"
+        },
+        {
+            "fieldId": 22,
+            "fieldName": "run_webservices",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Run_webservices",
+            "fieldNameUnderscored": "run_webservices"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "changelogDate": "20150122175050"
+}

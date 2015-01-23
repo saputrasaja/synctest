@@ -3,7 +3,7 @@ package com.oc.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserTypeOC  extends AbstractOcModel {
+public class UserTypeOC extends AbstractOcModel {
     private Long id;
 
     private String user_type;

@@ -1,0 +1,350 @@
+<div>
+
+    <h2>User Account</h2>
+
+<!--     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveUserAccountModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="synctestApp.userAccount.home.createLabel">Create a new UserAccount</span>
+    </button> -->
+    <div class="modal fade" id="saveUserAccountModal" tabindex="-1" role="dialog" aria-labelledby="myUserAccountLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myUserAccountLabel" translate="synctestApp.userAccount.home.createOrEditLabel">Create or edit a UserAccount</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="userAccount.id" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.first_name">First_name</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userAccount.first_name">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.last_name">Last_name</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userAccount.last_name">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.email">Email</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userAccount.email">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.active_study">Active_study</label>
+                            <input type="number" class="form-control"
+                                   ng-model="userAccount.active_study">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.institutional_affiliation">Institutional_affiliation</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userAccount.institutional_affiliation">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.status_id">Status_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="userAccount.status_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.date_created">Date_created</label>
+                            <input type="datetime-local" class="form-control"
+                                   ng-model="userAccount.date_created" ng-model-options="{timezone: 'UTC'}">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.date_updated">Date_updated</label>
+                            <input type="datetime-local" class="form-control"
+                                   ng-model="userAccount.date_updated" ng-model-options="{timezone: 'UTC'}">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.date_lastvisit">Date_lastvisit</label>
+                            <input type="datetime-local" class="form-control"
+                                   ng-model="userAccount.date_lastvisit" ng-model-options="{timezone: 'UTC'}">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.passwd_timestamp">Passwd_timestamp</label>
+                            <input type="datetime-local" class="form-control"
+                                   ng-model="userAccount.passwd_timestamp" ng-model-options="{timezone: 'UTC'}">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.passwd_challenge_question">Passwd_challenge_question</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userAccount.passwd_challenge_question">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.passwd_challenge_answer">Passwd_challenge_answer</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userAccount.passwd_challenge_answer">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.phone">Phone</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userAccount.phone">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.user_type_id">User_type_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="userAccount.user_type_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.update_id">Update_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="userAccount.update_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.enabled">Enabled</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="userAccount.enabled">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.account_non_locked">Account_non_locked</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="userAccount.account_non_locked">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.lock_counter">Lock_counter</label>
+                            <input type="number" class="form-control"
+                                   ng-model="userAccount.lock_counter">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.userAccount.run_webservices">Run_webservices</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="userAccount.run_webservices">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteUserAccountConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(userAccount.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="synctestApp.userAccount.delete.question" translate-values="{id: '{{userAccount.id}}'}">Are you sure you want to delete UserAccount {{userAccount.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="syncConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title">Synchronization</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            It will synchronize the data in the configuration table.
+                            <br/>
+                            {{diffData[1].length}} rows will be added on synctest.
+                            <br/>
+                            {{diffData[0].length}} rows will be added on openclinica.
+                            <br/>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary"
+                            ng-click="doSync()">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Do Sync</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit"
+            ng-click="toggleTable(0)"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-eye-open">&nbsp;{{toggleText[0]}}</span>
+    </button>
+    &nbsp;{{titleTable[0]}}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User Name</th>
+                    <!-- <th translate="synctestApp.userAccount.passwd">Passwd</th> -->
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+<!--                     <th translate="synctestApp.userAccount.active_study">Active_study</th>
+                    <th translate="synctestApp.userAccount.institutional_affiliation">Institutional_affiliation</th>
+                    <th translate="synctestApp.userAccount.status_id">Status_id</th>
+                    <th translate="synctestApp.userAccount.owner_id">Owner_id</th>
+                    <th translate="synctestApp.userAccount.date_created">Date_created</th>
+                    <th translate="synctestApp.userAccount.date_updated">Date_updated</th>
+                    <th translate="synctestApp.userAccount.date_lastvisit">Date_lastvisit</th>
+                    <th translate="synctestApp.userAccount.passwd_timestamp">Passwd_timestamp</th>
+                    <th translate="synctestApp.userAccount.passwd_challenge_question">Passwd_challenge_question</th>
+                    <th translate="synctestApp.userAccount.passwd_challenge_answer">Passwd_challenge_answer</th>
+                    <th translate="synctestApp.userAccount.phone">Phone</th>
+                    <th translate="synctestApp.userAccount.user_type_id">User_type_id</th>
+                    <th translate="synctestApp.userAccount.update_id">Update_id</th>
+                    <th translate="synctestApp.userAccount.enabled">Enabled</th>
+                    <th translate="synctestApp.userAccount.account_non_locked">Account_non_locked</th>
+                    <th translate="synctestApp.userAccount.lock_counter">Lock_counter</th>
+                    <th translate="synctestApp.userAccount.run_webservices">Run_webservices</th> -->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="userAccount in tableData[0]">
+                    <td>{{userAccount.id}}</td>
+                    <td>{{userAccount.user_name}}</td>
+                    <!-- <td>{{userAccount.passwd}}</td> -->
+                    <td>{{userAccount.first_name}}</td>
+                    <td>{{userAccount.last_name}}</td>
+                    <td>{{userAccount.email}}</td>
+<!--                     <td>{{userAccount.active_study}}</td>
+                    <td>{{userAccount.institutional_affiliation}}</td>
+                    <td>{{userAccount.status_id}}</td>
+                    <td>{{userAccount.owner_id}}</td>
+                    <td>{{userAccount.date_created}}</td>
+                    <td>{{userAccount.date_updated}}</td>
+                    <td>{{userAccount.date_lastvisit}}</td>
+                    <td>{{userAccount.passwd_timestamp}}</td>
+                    <td>{{userAccount.passwd_challenge_question}}</td>
+                    <td>{{userAccount.passwd_challenge_answer}}</td>
+                    <td>{{userAccount.phone}}</td>
+                    <td>{{userAccount.user_type_id}}</td>
+                    <td>{{userAccount.update_id}}</td>
+                    <td>{{userAccount.enabled}}</td>
+                    <td>{{userAccount.account_non_locked}}</td>
+                    <td>{{userAccount.lock_counter}}</td>
+                    <td>{{userAccount.run_webservices}}</td> -->
+                    <td>
+                        <button type="submit"
+                                ui-sref="userAccountDetail({id:userAccount.id})"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="update(userAccount.id)"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(userAccount.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/><br/>
+    <button type="submit"
+            ng-click="toggleTable(1)"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-eye-open">&nbsp;{{toggleText[1]}}</span>
+    </button>
+    &nbsp;{{titleTable[1]}}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User Name</th>
+                    <!-- <th translate="synctestApp.userAccount.passwd">Passwd</th> -->
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+<!--                     <th translate="synctestApp.userAccount.active_study">Active_study</th>
+                    <th translate="synctestApp.userAccount.institutional_affiliation">Institutional_affiliation</th>
+                    <th translate="synctestApp.userAccount.status_id">Status_id</th>
+                    <th translate="synctestApp.userAccount.owner_id">Owner_id</th>
+                    <th translate="synctestApp.userAccount.date_created">Date_created</th>
+                    <th translate="synctestApp.userAccount.date_updated">Date_updated</th>
+                    <th translate="synctestApp.userAccount.date_lastvisit">Date_lastvisit</th>
+                    <th translate="synctestApp.userAccount.passwd_timestamp">Passwd_timestamp</th>
+                    <th translate="synctestApp.userAccount.passwd_challenge_question">Passwd_challenge_question</th>
+                    <th translate="synctestApp.userAccount.passwd_challenge_answer">Passwd_challenge_answer</th>
+                    <th translate="synctestApp.userAccount.phone">Phone</th>
+                    <th translate="synctestApp.userAccount.user_type_id">User_type_id</th>
+                    <th translate="synctestApp.userAccount.update_id">Update_id</th>
+                    <th translate="synctestApp.userAccount.enabled">Enabled</th>
+                    <th translate="synctestApp.userAccount.account_non_locked">Account_non_locked</th>
+                    <th translate="synctestApp.userAccount.lock_counter">Lock_counter</th>
+                    <th translate="synctestApp.userAccount.run_webservices">Run_webservices</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="userAccount in tableData[1]">
+                    <td>{{userAccount.id}}</td>
+                    <td>{{userAccount.user_name}}</td>
+                    <!-- <td>{{userAccount.passwd}}</td> -->
+                    <td>{{userAccount.first_name}}</td>
+                    <td>{{userAccount.last_name}}</td>
+                    <td>{{userAccount.email}}</td>
+<!--                     <td>{{userAccount.active_study}}</td>
+                    <td>{{userAccount.institutional_affiliation}}</td>
+                    <td>{{userAccount.status_id}}</td>
+                    <td>{{userAccount.owner_id}}</td>
+                    <td>{{userAccount.date_created}}</td>
+                    <td>{{userAccount.date_updated}}</td>
+                    <td>{{userAccount.date_lastvisit}}</td>
+                    <td>{{userAccount.passwd_timestamp}}</td>
+                    <td>{{userAccount.passwd_challenge_question}}</td>
+                    <td>{{userAccount.passwd_challenge_answer}}</td>
+                    <td>{{userAccount.phone}}</td>
+                    <td>{{userAccount.user_type_id}}</td>
+                    <td>{{userAccount.update_id}}</td>
+                    <td>{{userAccount.enabled}}</td>
+                    <td>{{userAccount.account_non_locked}}</td>
+                    <td>{{userAccount.lock_counter}}</td>
+                    <td>{{userAccount.run_webservices}}</td> -->
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<button type="submit"
+        ng-click="preSync()"
+        class="btn btn-primary">
+    <span class="glyphicon glyphicon-refresh">&nbsp;Sync</span>
+</button>

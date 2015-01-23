@@ -11,6 +11,7 @@
                 "status": "Status",
                 "datasetItemStatus": "DatasetItemStatus",
                 "userType": "UserType",
+                "userAccount": "UserAccount",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {

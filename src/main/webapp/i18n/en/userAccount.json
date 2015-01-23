@@ -1,0 +1,39 @@
+{
+    "synctestApp": {
+        "userAccount" : {
+            "home": {
+                "title": "UserAccounts",
+                "createLabel": "Create a new UserAccount",
+                "createOrEditLabel": "Create or edit a UserAccount"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete UserAccount {{ id }}?"
+            },
+            "detail": {
+                "title": "User Account"
+            },
+            "user_name": "User Name",
+            "passwd": "Passwd",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "email": "Email",
+            "active_study": "Active Study",
+            "institutional_affiliation": "Institutional Affiliation",
+            "status_id": "Status Id",
+            "owner_id": "Owner Id",
+            "date_created": "Date Created",
+            "date_updated": "Date Updated",
+            "date_lastvisit": "Date Lastvisit",
+            "passwd_timestamp": "Passwd Timestamp",
+            "passwd_challenge_question": "Passwd Challenge Question",
+            "passwd_challenge_answer": "Passwd Challenge Answer",
+            "phone": "Phone",
+            "user_type_id": "User Type Id",
+            "update_id": "Update Id",
+            "enabled": "Enabled",
+            "account_non_locked": "Account Non Locked",
+            "lock_counter": "Lock Counter",
+            "run_webservices": "Run Webservices"
+        }
+    }
+}
