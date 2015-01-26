@@ -1,0 +1,397 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "parent_study_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Parent_study_id",
+            "fieldNameUnderscored": "parent_study_id"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "unique_identifier",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Unique_identifier",
+            "fieldNameUnderscored": "unique_identifier"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "secondary_identifier",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Secondary_identifier",
+            "fieldNameUnderscored": "secondary_identifier"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "summary",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Summary",
+            "fieldNameUnderscored": "summary"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "date_planned_start",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_planned_start",
+            "fieldNameUnderscored": "date_planned_start"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "date_planned_end",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_planned_end",
+            "fieldNameUnderscored": "date_planned_end"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "date_created",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_created",
+            "fieldNameUnderscored": "date_created"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "date_updated",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_updated",
+            "fieldNameUnderscored": "date_updated"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "owner_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Owner_id",
+            "fieldNameUnderscored": "owner_id"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "update_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Update_id",
+            "fieldNameUnderscored": "update_id"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "type_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Type_id",
+            "fieldNameUnderscored": "type_id"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "status_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Status_id",
+            "fieldNameUnderscored": "status_id"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "principal_investigator",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Principal_investigator",
+            "fieldNameUnderscored": "principal_investigator"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "facility_name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_name",
+            "fieldNameUnderscored": "facility_name"
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "facility_city",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_city",
+            "fieldNameUnderscored": "facility_city"
+        },
+        {
+            "fieldId": 17,
+            "fieldName": "facility_state",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_state",
+            "fieldNameUnderscored": "facility_state"
+        },
+        {
+            "fieldId": 18,
+            "fieldName": "facility_zip",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_zip",
+            "fieldNameUnderscored": "facility_zip"
+        },
+        {
+            "fieldId": 19,
+            "fieldName": "facility_country",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_country",
+            "fieldNameUnderscored": "facility_country"
+        },
+        {
+            "fieldId": 20,
+            "fieldName": "facility_recruitment_status",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_recruitment_status",
+            "fieldNameUnderscored": "facility_recruitment_status"
+        },
+        {
+            "fieldId": 21,
+            "fieldName": "facility_contact_name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_contact_name",
+            "fieldNameUnderscored": "facility_contact_name"
+        },
+        {
+            "fieldId": 22,
+            "fieldName": "facility_contact_degree",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_contact_degree",
+            "fieldNameUnderscored": "facility_contact_degree"
+        },
+        {
+            "fieldId": 23,
+            "fieldName": "facility_contact_phone",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_contact_phone",
+            "fieldNameUnderscored": "facility_contact_phone"
+        },
+        {
+            "fieldId": 24,
+            "fieldName": "facility_contact_email",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Facility_contact_email",
+            "fieldNameUnderscored": "facility_contact_email"
+        },
+        {
+            "fieldId": 25,
+            "fieldName": "protocol_type",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Protocol_type",
+            "fieldNameUnderscored": "protocol_type"
+        },
+        {
+            "fieldId": 26,
+            "fieldName": "protocol_description",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Protocol_description",
+            "fieldNameUnderscored": "protocol_description"
+        },
+        {
+            "fieldId": 27,
+            "fieldName": "protocol_date_verification",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Protocol_date_verification",
+            "fieldNameUnderscored": "protocol_date_verification"
+        },
+        {
+            "fieldId": 28,
+            "fieldName": "phase",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Phase",
+            "fieldNameUnderscored": "phase"
+        },
+        {
+            "fieldId": 29,
+            "fieldName": "expected_total_enrollment",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Expected_total_enrollment",
+            "fieldNameUnderscored": "expected_total_enrollment"
+        },
+        {
+            "fieldId": 30,
+            "fieldName": "sponsor",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Sponsor",
+            "fieldNameUnderscored": "sponsor"
+        },
+        {
+            "fieldId": 31,
+            "fieldName": "collaborators",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Collaborators",
+            "fieldNameUnderscored": "collaborators"
+        },
+        {
+            "fieldId": 32,
+            "fieldName": "medline_identifier",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Medline_identifier",
+            "fieldNameUnderscored": "medline_identifier"
+        },
+        {
+            "fieldId": 33,
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Url",
+            "fieldNameUnderscored": "url"
+        },
+        {
+            "fieldId": 34,
+            "fieldName": "url_description",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Url_description",
+            "fieldNameUnderscored": "url_description"
+        },
+        {
+            "fieldId": 35,
+            "fieldName": "conditions",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Conditions",
+            "fieldNameUnderscored": "conditions"
+        },
+        {
+            "fieldId": 36,
+            "fieldName": "keywords",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Keywords",
+            "fieldNameUnderscored": "keywords"
+        },
+        {
+            "fieldId": 37,
+            "fieldName": "eligibility",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Eligibility",
+            "fieldNameUnderscored": "eligibility"
+        },
+        {
+            "fieldId": 38,
+            "fieldName": "gender",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Gender",
+            "fieldNameUnderscored": "gender"
+        },
+        {
+            "fieldId": 39,
+            "fieldName": "age_max",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Age_max",
+            "fieldNameUnderscored": "age_max"
+        },
+        {
+            "fieldId": 40,
+            "fieldName": "age_min",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Age_min",
+            "fieldNameUnderscored": "age_min"
+        },
+        {
+            "fieldId": 41,
+            "fieldName": "healthy_volunteer_accepted",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Healthy_volunteer_accepted",
+            "fieldNameUnderscored": "healthy_volunteer_accepted"
+        },
+        {
+            "fieldId": 42,
+            "fieldName": "purpose",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Purpose",
+            "fieldNameUnderscored": "purpose"
+        },
+        {
+            "fieldId": 43,
+            "fieldName": "allocation",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Allocation",
+            "fieldNameUnderscored": "allocation"
+        },
+        {
+            "fieldId": 44,
+            "fieldName": "masking",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Masking",
+            "fieldNameUnderscored": "masking"
+        },
+        {
+            "fieldId": 45,
+            "fieldName": "control",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Control",
+            "fieldNameUnderscored": "control"
+        },
+        {
+            "fieldId": 46,
+            "fieldName": "assignment",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Assignment",
+            "fieldNameUnderscored": "assignment"
+        },
+        {
+            "fieldId": 47,
+            "fieldName": "endpoint",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Endpoint",
+            "fieldNameUnderscored": "endpoint"
+        },
+        {
+            "fieldId": 48,
+            "fieldName": "interventions",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Interventions",
+            "fieldNameUnderscored": "interventions"
+        },
+        {
+            "fieldId": 49,
+            "fieldName": "duration",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Duration",
+            "fieldNameUnderscored": "duration"
+        },
+        {
+            "fieldId": 50,
+            "fieldName": "selection",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Selection",
+            "fieldNameUnderscored": "selection"
+        },
+        {
+            "fieldId": 51,
+            "fieldName": "timing",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Timing",
+            "fieldNameUnderscored": "timing"
+        },
+        {
+            "fieldId": 52,
+            "fieldName": "official_title",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Official_title",
+            "fieldNameUnderscored": "official_title"
+        },
+        {
+            "fieldId": 53,
+            "fieldName": "results_reference",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Results_reference",
+            "fieldNameUnderscored": "results_reference"
+        },
+        {
+            "fieldId": 54,
+            "fieldName": "oc_oid",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Oc_oid",
+            "fieldNameUnderscored": "oc_oid"
+        },
+        {
+            "fieldId": 55,
+            "fieldName": "old_status_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Old_status_id",
+            "fieldNameUnderscored": "old_status_id"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "changelogDate": "20150123153338"
+}

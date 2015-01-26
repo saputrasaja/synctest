@@ -1,0 +1,73 @@
+{
+    "synctestApp": {
+        "study" : {
+            "home": {
+                "title": "Studys",
+                "createLabel": "Créer un nouveau Study",
+                "createOrEditLabel": "Créer ou éditer un Study"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Study {{ id }} ?"
+            },
+            "detail": {
+                "title": "Study"
+            },
+            "parent_study_id": "Parent_study_id",
+            "unique_identifier": "Unique_identifier",
+            "secondary_identifier": "Secondary_identifier",
+            "name": "Name",
+            "summary": "Summary",
+            "date_planned_start": "Date_planned_start",
+            "date_planned_end": "Date_planned_end",
+            "date_created": "Date_created",
+            "date_updated": "Date_updated",
+            "owner_id": "Owner_id",
+            "update_id": "Update_id",
+            "type_id": "Type_id",
+            "status_id": "Status_id",
+            "principal_investigator": "Principal_investigator",
+            "facility_name": "Facility_name",
+            "facility_city": "Facility_city",
+            "facility_state": "Facility_state",
+            "facility_zip": "Facility_zip",
+            "facility_country": "Facility_country",
+            "facility_recruitment_status": "Facility_recruitment_status",
+            "facility_contact_name": "Facility_contact_name",
+            "facility_contact_degree": "Facility_contact_degree",
+            "facility_contact_phone": "Facility_contact_phone",
+            "facility_contact_email": "Facility_contact_email",
+            "protocol_type": "Protocol_type",
+            "protocol_description": "Protocol_description",
+            "protocol_date_verification": "Protocol_date_verification",
+            "phase": "Phase",
+            "expected_total_enrollment": "Expected_total_enrollment",
+            "sponsor": "Sponsor",
+            "collaborators": "Collaborators",
+            "medline_identifier": "Medline_identifier",
+            "url": "Url",
+            "url_description": "Url_description",
+            "conditions": "Conditions",
+            "keywords": "Keywords",
+            "eligibility": "Eligibility",
+            "gender": "Gender",
+            "age_max": "Age_max",
+            "age_min": "Age_min",
+            "healthy_volunteer_accepted": "Healthy_volunteer_accepted",
+            "purpose": "Purpose",
+            "allocation": "Allocation",
+            "masking": "Masking",
+            "control": "Control",
+            "assignment": "Assignment",
+            "endpoint": "Endpoint",
+            "interventions": "Interventions",
+            "duration": "Duration",
+            "selection": "Selection",
+            "timing": "Timing",
+            "official_title": "Official_title",
+            "results_reference": "Results_reference",
+            "oc_oid": "Oc_oid",
+            "old_status_id": "Old_status_id"
+        }
+    }
+}
+

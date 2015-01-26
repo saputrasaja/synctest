@@ -5,7 +5,6 @@ import com.oc.connection.OcConnect;
 import com.oc.model.StudyTypeHelper;
 import com.oc.model.StudyTypeOC;
 import com.supadosworks.synctest.domain.StudyType;
-import com.supadosworks.synctest.domain.StudyType;
 import com.supadosworks.synctest.repository.StudyTypeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

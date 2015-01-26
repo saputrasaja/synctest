@@ -1,0 +1,462 @@
+
+<div>
+    <h2><span translate="synctestApp.study.detail.title">Study</span> {{study.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.parent_study_id">Parent_study_id</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.parent_study_id}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.unique_identifier">Unique_identifier</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.unique_identifier}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.secondary_identifier">Secondary_identifier</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.secondary_identifier}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.name">Name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.summary">Summary</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.summary}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.date_planned_start">Date_planned_start</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.date_planned_start}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.date_planned_end">Date_planned_end</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.date_planned_end}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.date_created">Date_created</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.date_created}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.date_updated">Date_updated</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.date_updated}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.owner_id">Owner_id</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.owner_id}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.update_id">Update_id</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.update_id}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.type_id">Type_id</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.type_id}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.status_id">Status_id</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.status_id}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.principal_investigator">Principal_investigator</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.principal_investigator}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_name">Facility_name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_city">Facility_city</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_city}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_state">Facility_state</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_state}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_zip">Facility_zip</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_zip}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_country">Facility_country</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_country}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_recruitment_status">Facility_recruitment_status</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_recruitment_status}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_contact_name">Facility_contact_name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_contact_name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_contact_degree">Facility_contact_degree</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_contact_degree}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_contact_phone">Facility_contact_phone</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_contact_phone}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.facility_contact_email">Facility_contact_email</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.facility_contact_email}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.protocol_type">Protocol_type</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.protocol_type}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.protocol_description">Protocol_description</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.protocol_description}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.protocol_date_verification">Protocol_date_verification</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.protocol_date_verification}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.phase">Phase</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.phase}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.expected_total_enrollment">Expected_total_enrollment</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.expected_total_enrollment}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.sponsor">Sponsor</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.sponsor}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.collaborators">Collaborators</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.collaborators}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.medline_identifier">Medline_identifier</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.medline_identifier}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.url">Url</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.url}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.url_description">Url_description</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.url_description}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.conditions">Conditions</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.conditions}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.keywords">Keywords</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.keywords}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.eligibility">Eligibility</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.eligibility}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.gender">Gender</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.gender}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.age_max">Age_max</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.age_max}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.age_min">Age_min</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.age_min}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.healthy_volunteer_accepted">Healthy_volunteer_accepted</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.healthy_volunteer_accepted}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.purpose">Purpose</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.purpose}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.allocation">Allocation</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.allocation}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.masking">Masking</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.masking}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.control">Control</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.control}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.assignment">Assignment</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.assignment}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.endpoint">Endpoint</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.endpoint}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.interventions">Interventions</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.interventions}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.duration">Duration</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.duration}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.selection">Selection</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.selection}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.timing">Timing</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.timing}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.official_title">Official_title</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.official_title}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.results_reference">Results_reference</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.results_reference}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.oc_oid">Oc_oid</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.oc_oid}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.study.old_status_id">Old_status_id</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{study.old_status_id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="study"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

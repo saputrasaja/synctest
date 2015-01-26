@@ -13,6 +13,7 @@
                 "userType": "UserType",
                 "userAccount": "UserAccount",
                 "studyType": "StudyType",
+                "study": "Study",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {

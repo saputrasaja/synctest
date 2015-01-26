@@ -1,0 +1,72 @@
+{
+    "synctestApp": {
+        "study" : {
+            "home": {
+                "title": "Table Study",
+                "createLabel": "Create a new Study",
+                "createOrEditLabel": "Create or edit a Study"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Study {{ id }}?"
+            },
+            "detail": {
+                "title": "Study"
+            },
+            "parent_study_id": "Parent Study Id",
+            "unique_identifier": "Unique Identifier",
+            "secondary_identifier": "Secondary Identifier",
+            "name": "Name",
+            "summary": "Summary",
+            "date_planned_start": "Date Planned Start",
+            "date_planned_end": "Date Planned End",
+            "date_created": "Date Created",
+            "date_updated": "Date Updated",
+            "owner_id": "Owner Id",
+            "update_id": "Update Id",
+            "type_id": "Type Id",
+            "status_id": "Status Id",
+            "principal_investigator": "Principal Investigator",
+            "facility_name": "Facility Name",
+            "facility_city": "Facility City",
+            "facility_state": "Facility State",
+            "facility_zip": "Facility Zip",
+            "facility_country": "Facility Country",
+            "facility_recruitment_status": "Facility Recruitment Status",
+            "facility_contact_name": "Facility Contact Name",
+            "facility_contact_degree": "Facility Contact Degree",
+            "facility_contact_phone": "Facility Contact Phone",
+            "facility_contact_email": "Facility Contact Email",
+            "protocol_type": "Protocol Type",
+            "protocol_description": "Protocol Description",
+            "protocol_date_verification": "Protocol Date Verification",
+            "phase": "Phase",
+            "expected_total_enrollment": "Expected Total Enrollment",
+            "sponsor": "Sponsor",
+            "collaborators": "Collaborators",
+            "medline_identifier": "Medline Identifier",
+            "url": "Url",
+            "url_description": "Url Description",
+            "conditions": "Conditions",
+            "keywords": "Keywords",
+            "eligibility": "Eligibility",
+            "gender": "Gender",
+            "age_max": "Age Max",
+            "age_min": "Age Min",
+            "healthy_volunteer_accepted": "Healthy Volunteer Accepted",
+            "purpose": "Purpose",
+            "allocation": "Allocation",
+            "masking": "Masking",
+            "control": "Control",
+            "assignment": "Assignment",
+            "endpoint": "Endpoint",
+            "interventions": "Interventions",
+            "duration": "Duration",
+            "selection": "Selection",
+            "timing": "Timing",
+            "official_title": "Official Title",
+            "results_reference": "Results Reference",
+            "oc_oid": "Oc Oid",
+            "old_status_id": "Old Status Id"
+        }
+    }
+}
