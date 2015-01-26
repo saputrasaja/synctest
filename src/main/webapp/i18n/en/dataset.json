@@ -1,0 +1,52 @@
+{
+    "synctestApp": {
+        "dataset" : {
+            "home": {
+                "title": "Table Dataset",
+                "createLabel": "Create a new Dataset",
+                "createOrEditLabel": "Create or edit a Dataset"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Dataset {{ id }}?"
+            },
+            "detail": {
+                "title": "Dataset"
+            },
+            "study_id": "Study Id",
+            "status_id": "Status Id",
+            "name": "Name",
+            "description": "Description",
+            "sql_statement": "Sql Statement",
+            "num_runs": "Num Runs",
+            "date_start": "Date Start",
+            "date_end": "Date End",
+            "date_created": "Date Created",
+            "date_updated": "Date Updated",
+            "date_last run": "Date Last Run",
+            "owner_id": "Owner Id",
+            "approver_id": "Approver Id",
+            "update_id": "Update Id",
+            "show_event_location": "Show Event Location",
+            "show event_start": "Show Event Start",
+            "show_event_end": "Show Event End",
+            "show_subject dob": "Show Subject Dob",
+            "show_subject_gender": "Show Subject Gender",
+            "show event_status": "Show Event Status",
+            "show_subject_status": "Show Subject Status",
+            "show subject_unique id": "Show Subject Unique Id",
+            "show_subject_age_at_event": "Show Subject Age at Event",
+            "show_crf_status": "Show crf status",
+            "show_crf_version": "Show crf version",
+            "show_crf_int_name": "Show crf int name",
+            "show_crf_int_date": "Show crf int date",
+            "show_group_info": "Show group info",
+            "show_disc_info": "Show disc info",
+            "odm_metadataversion_name": "Odm metadataversion name",
+            "odm_metadataversion_oid": "Odm metadataversion oid",
+            "odm_prior_study_oid": "Odm prior study oid",
+            "odm_prior_metadataversion oid": "Odm prior metadataversion oid",
+            "show_secondary_id": "Show secondary id",
+            "dataset_item_status_id": "Dataset item status id"
+        }
+    }
+}

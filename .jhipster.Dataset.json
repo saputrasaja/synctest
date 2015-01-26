@@ -1,0 +1,257 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "study_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Study_id",
+            "fieldNameUnderscored": "study_id"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "status_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Status_id",
+            "fieldNameUnderscored": "status_id"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Description",
+            "fieldNameUnderscored": "description"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "sql_statement",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Sql_statement",
+            "fieldNameUnderscored": "sql_statement"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "num_runs",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Num_runs",
+            "fieldNameUnderscored": "num_runs"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "date_start",
+            "fieldType": "LocalDate",
+            "fieldNameCapitalized": "Date_start",
+            "fieldNameUnderscored": "date_start"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "date_end",
+            "fieldType": "LocalDate",
+            "fieldNameCapitalized": "Date_end",
+            "fieldNameUnderscored": "date_end"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "date_created",
+            "fieldType": "LocalDate",
+            "fieldNameCapitalized": "Date_created",
+            "fieldNameUnderscored": "date_created"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "date_updated",
+            "fieldType": "LocalDate",
+            "fieldNameCapitalized": "Date_updated",
+            "fieldNameUnderscored": "date_updated"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "date_last_run",
+            "fieldType": "LocalDate",
+            "fieldNameCapitalized": "Date_last_run",
+            "fieldNameUnderscored": "date_last_run"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "owner_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Owner_id",
+            "fieldNameUnderscored": "owner_id"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "approver_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Approver_id",
+            "fieldNameUnderscored": "approver_id"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "update_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Update_id",
+            "fieldNameUnderscored": "update_id"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "show_event_location",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_event_location",
+            "fieldNameUnderscored": "show_event_location"
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "show_event_start",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_event_start",
+            "fieldNameUnderscored": "show_event_start"
+        },
+        {
+            "fieldId": 17,
+            "fieldName": "show_event_end",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_event_end",
+            "fieldNameUnderscored": "show_event_end"
+        },
+        {
+            "fieldId": 18,
+            "fieldName": "show_subject_dob",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_subject_dob",
+            "fieldNameUnderscored": "show_subject_dob"
+        },
+        {
+            "fieldId": 19,
+            "fieldName": "show_subject_gender",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_subject_gender",
+            "fieldNameUnderscored": "show_subject_gender"
+        },
+        {
+            "fieldId": 20,
+            "fieldName": "show_event_status",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_event_status",
+            "fieldNameUnderscored": "show_event_status"
+        },
+        {
+            "fieldId": 21,
+            "fieldName": "show_subject_status",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_subject_status",
+            "fieldNameUnderscored": "show_subject_status"
+        },
+        {
+            "fieldId": 22,
+            "fieldName": "show_subject_unique_id",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_subject_unique_id",
+            "fieldNameUnderscored": "show_subject_unique_id"
+        },
+        {
+            "fieldId": 23,
+            "fieldName": "show_subject_age_at_event",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_subject_age_at_event",
+            "fieldNameUnderscored": "show_subject_age_at_event"
+        },
+        {
+            "fieldId": 24,
+            "fieldName": "show_crf_status",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_crf_status",
+            "fieldNameUnderscored": "show_crf_status"
+        },
+        {
+            "fieldId": 25,
+            "fieldName": "show_crf_version",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_crf_version",
+            "fieldNameUnderscored": "show_crf_version"
+        },
+        {
+            "fieldId": 26,
+            "fieldName": "show_crf_int_name",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_crf_int_name",
+            "fieldNameUnderscored": "show_crf_int_name"
+        },
+        {
+            "fieldId": 27,
+            "fieldName": "show_crf_int_date",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_crf_int_date",
+            "fieldNameUnderscored": "show_crf_int_date"
+        },
+        {
+            "fieldId": 28,
+            "fieldName": "show_group_info",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_group_info",
+            "fieldNameUnderscored": "show_group_info"
+        },
+        {
+            "fieldId": 29,
+            "fieldName": "show_disc_info",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_disc_info",
+            "fieldNameUnderscored": "show_disc_info"
+        },
+        {
+            "fieldId": 30,
+            "fieldName": "odm_metadataversion_name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Odm_metadataversion_name",
+            "fieldNameUnderscored": "odm_metadataversion_name"
+        },
+        {
+            "fieldId": 31,
+            "fieldName": "odm_metadataversion_oid",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Odm_metadataversion_oid",
+            "fieldNameUnderscored": "odm_metadataversion_oid"
+        },
+        {
+            "fieldId": 32,
+            "fieldName": "odm_prior_study_oid",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Odm_prior_study_oid",
+            "fieldNameUnderscored": "odm_prior_study_oid"
+        },
+        {
+            "fieldId": 33,
+            "fieldName": "odm_prior_metadataversion_oid",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Odm_prior_metadataversion_oid",
+            "fieldNameUnderscored": "odm_prior_metadataversion_oid"
+        },
+        {
+            "fieldId": 34,
+            "fieldName": "show_secondary_id",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Show_secondary_id",
+            "fieldNameUnderscored": "show_secondary_id"
+        },
+        {
+            "fieldId": 35,
+            "fieldName": "dataset_item_status_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Dataset_item_status_id",
+            "fieldNameUnderscored": "dataset_item_status_id"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": true,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150126150529"
+}

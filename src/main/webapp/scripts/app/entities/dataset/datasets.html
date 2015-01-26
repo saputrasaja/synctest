@@ -1,0 +1,399 @@
+<div>
+
+    <h2 translate="synctestApp.dataset.home.title">Dataset</h2>
+
+<!--     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveDatasetModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="synctestApp.dataset.home.createLabel">Create a new Dataset</span>
+    </button> -->
+    <div class="modal fade" id="saveDatasetModal" tabindex="-1" role="dialog" aria-labelledby="myDatasetLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myDatasetLabel" translate="synctestApp.dataset.home.createOrEditLabel">Create or edit a Dataset</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="dataset.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.study_id">Study_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="dataset.study_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.status_id">Status_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="dataset.status_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.name">Name</label>
+                            <input type="text" class="form-control"
+                                   ng-model="dataset.name">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.description">Description</label>
+                            <input type="text" class="form-control"
+                                   ng-model="dataset.description">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.sql_statement">Sql_statement</label>
+                            <input type="text" class="form-control"
+                                   ng-model="dataset.sql_statement">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.num_runs">Num_runs</label>
+                            <input type="number" class="form-control"
+                                   ng-model="dataset.num_runs">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.date_start">Date_start</label>
+                            <input type="date" class="form-control"
+                                   ng-model="dataset.date_start">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.date_end">Date_end</label>
+                            <input type="date" class="form-control"
+                                   ng-model="dataset.date_end">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.date_created">Date_created</label>
+                            <input type="date" class="form-control"
+                                   ng-model="dataset.date_created">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.date_updated">Date_updated</label>
+                            <input type="date" class="form-control"
+                                   ng-model="dataset.date_updated">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.date_last_run">Date_last_run</label>
+                            <input type="date" class="form-control"
+                                   ng-model="dataset.date_last_run">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.owner_id">Owner_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="dataset.owner_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.approver_id">Approver_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="dataset.approver_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.update_id">Update_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="dataset.update_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_event_location">Show_event_location</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_event_location">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_event_start">Show_event_start</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_event_start">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_event_end">Show_event_end</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_event_end">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_subject_dob">Show_subject_dob</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_subject_dob">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_subject_gender">Show_subject_gender</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_subject_gender">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_event_status">Show_event_status</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_event_status">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_subject_status">Show_subject_status</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_subject_status">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_subject_unique_id">Show_subject_unique_id</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_subject_unique_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_subject_age_at_event">Show_subject_age_at_event</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_subject_age_at_event">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_crf_status">Show_crf_status</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_crf_status">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_crf_version">Show_crf_version</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_crf_version">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_crf_int_name">Show_crf_int_name</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_crf_int_name">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_crf_int_date">Show_crf_int_date</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_crf_int_date">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_group_info">Show_group_info</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_group_info">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_disc_info">Show_disc_info</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_disc_info">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.odm_metadataversion_name">Odm_metadataversion_name</label>
+                            <input type="text" class="form-control"
+                                   ng-model="dataset.odm_metadataversion_name">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.odm_metadataversion_oid">Odm_metadataversion_oid</label>
+                            <input type="text" class="form-control"
+                                   ng-model="dataset.odm_metadataversion_oid">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.odm_prior_study_oid">Odm_prior_study_oid</label>
+                            <input type="text" class="form-control"
+                                   ng-model="dataset.odm_prior_study_oid">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.odm_prior_metadataversion_oid">Odm_prior_metadataversion_oid</label>
+                            <input type="text" class="form-control"
+                                   ng-model="dataset.odm_prior_metadataversion_oid">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.show_secondary_id">Show_secondary_id</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="dataset.show_secondary_id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.dataset.dataset_item_status_id">Dataset_item_status_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="dataset.dataset_item_status_id">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteDatasetConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(dataset.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="synctestApp.dataset.delete.question" translate-values="{id: '{{dataset.id}}'}">Are you sure you want to delete Dataset {{dataset.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="syncConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title">Synchronization</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            It will synchronize the data in the configuration table.
+                            <br/>
+                            {{diffData[1].length}} rows will be added on synctest.
+                            <br/>
+                            {{diffData[0].length}} rows will be added on openclinica.
+                            <br/>
+                            <div class="alert alert-warning" role="alert">
+                                <strong>Carefully, </strong> This table contains foreign key from another table. 
+                                <br/>
+                                Need to sync table <strong>dataset_item_status, status, study</strong> and <strong>user_account</strong> before doing synchronization.
+                            </div>
+                           
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary"
+                            ng-click="doSync()">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Do Sync</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div ng-repeat="i in array">
+        <button type="submit"
+                ng-click="toggleTable(i)"
+                class="btn btn-info">
+            <span class="glyphicon glyphicon-eye-open">&nbsp;{{toggleText[i]}}</span>
+        </button>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+<!--                         <th translate="synctestApp.dataset.study_id">Study_id</th>
+                        <th translate="synctestApp.dataset.status_id">Status_id</th> -->
+                        <th translate="synctestApp.dataset.name">Name</th>
+                        <th translate="synctestApp.dataset.description">Description</th>
+<!--                         <th translate="synctestApp.dataset.sql_statement">Sql_statement</th>
+                        <th translate="synctestApp.dataset.num_runs">Num_runs</th>
+                        <th translate="synctestApp.dataset.date_start">Date_start</th>
+                        <th translate="synctestApp.dataset.date_end">Date_end</th>
+                        <th translate="synctestApp.dataset.date_created">Date_created</th>
+                        <th translate="synctestApp.dataset.date_updated">Date_updated</th>
+                        <th translate="synctestApp.dataset.date_last_run">Date_last_run</th>
+                        <th translate="synctestApp.dataset.owner_id">Owner_id</th>
+                        <th translate="synctestApp.dataset.approver_id">Approver_id</th>
+                        <th translate="synctestApp.dataset.update_id">Update_id</th>
+                        <th translate="synctestApp.dataset.show_event_location">Show_event_location</th>
+                        <th translate="synctestApp.dataset.show_event_start">Show_event_start</th>
+                        <th translate="synctestApp.dataset.show_event_end">Show_event_end</th>
+                        <th translate="synctestApp.dataset.show_subject_dob">Show_subject_dob</th>
+                        <th translate="synctestApp.dataset.show_subject_gender">Show_subject_gender</th>
+                        <th translate="synctestApp.dataset.show_event_status">Show_event_status</th>
+                        <th translate="synctestApp.dataset.show_subject_status">Show_subject_status</th>
+                        <th translate="synctestApp.dataset.show_subject_unique_id">Show_subject_unique_id</th>
+                        <th translate="synctestApp.dataset.show_subject_age_at_event">Show_subject_age_at_event</th>
+                        <th translate="synctestApp.dataset.show_crf_status">Show_crf_status</th>
+                        <th translate="synctestApp.dataset.show_crf_version">Show_crf_version</th>
+                        <th translate="synctestApp.dataset.show_crf_int_name">Show_crf_int_name</th>
+                        <th translate="synctestApp.dataset.show_crf_int_date">Show_crf_int_date</th>
+                        <th translate="synctestApp.dataset.show_group_info">Show_group_info</th>
+                        <th translate="synctestApp.dataset.show_disc_info">Show_disc_info</th>
+                        <th translate="synctestApp.dataset.odm_metadataversion_name">Odm_metadataversion_name</th>
+                        <th translate="synctestApp.dataset.odm_metadataversion_oid">Odm_metadataversion_oid</th>
+                        <th translate="synctestApp.dataset.odm_prior_study_oid">Odm_prior_study_oid</th>
+                        <th translate="synctestApp.dataset.odm_prior_metadataversion_oid">Odm_prior_metadataversion_oid</th>
+                        <th translate="synctestApp.dataset.show_secondary_id">Show_secondary_id</th>
+                        <th translate="synctestApp.dataset.dataset_item_status_id">Dataset_item_status_id</th> -->
+                        <th ng-if="i == 0"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="dataset in tableData[i]">
+                        <td>{{dataset.id}}</td>
+<!--                         <td>{{dataset.study_id}}</td>
+                        <td>{{dataset.status_id}}</td> -->
+                        <td>{{dataset.name}}</td>
+                        <td>{{dataset.description}}</td>
+<!--                         <td>{{dataset.sql_statement}}</td>
+                        <td>{{dataset.num_runs}}</td>
+                        <td>{{dataset.date_start}}</td>
+                        <td>{{dataset.date_end}}</td>
+                        <td>{{dataset.date_created}}</td>
+                        <td>{{dataset.date_updated}}</td>
+                        <td>{{dataset.date_last_run}}</td>
+                        <td>{{dataset.owner_id}}</td>
+                        <td>{{dataset.approver_id}}</td>
+                        <td>{{dataset.update_id}}</td>
+                        <td>{{dataset.show_event_location}}</td>
+                        <td>{{dataset.show_event_start}}</td>
+                        <td>{{dataset.show_event_end}}</td>
+                        <td>{{dataset.show_subject_dob}}</td>
+                        <td>{{dataset.show_subject_gender}}</td>
+                        <td>{{dataset.show_event_status}}</td>
+                        <td>{{dataset.show_subject_status}}</td>
+                        <td>{{dataset.show_subject_unique_id}}</td>
+                        <td>{{dataset.show_subject_age_at_event}}</td>
+                        <td>{{dataset.show_crf_status}}</td>
+                        <td>{{dataset.show_crf_version}}</td>
+                        <td>{{dataset.show_crf_int_name}}</td>
+                        <td>{{dataset.show_crf_int_date}}</td>
+                        <td>{{dataset.show_group_info}}</td>
+                        <td>{{dataset.show_disc_info}}</td>
+                        <td>{{dataset.odm_metadataversion_name}}</td>
+                        <td>{{dataset.odm_metadataversion_oid}}</td>
+                        <td>{{dataset.odm_prior_study_oid}}</td>
+                        <td>{{dataset.odm_prior_metadataversion_oid}}</td>
+                        <td>{{dataset.show_secondary_id}}</td>
+                        <td>{{dataset.dataset_item_status_id}}</td> -->
+                        <td ng-if="i == 0">
+                            <button type="submit"
+                                    ui-sref="datasetDetail({id:dataset.id})"
+                                    class="btn btn-info">
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                            </button>
+                            <button type="submit"
+                                    ng-click="update(dataset.id)"
+                                    class="btn btn-primary">
+                                <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                            </button>
+                            <button type="submit"
+                                    ng-click="delete(dataset.id)"
+                                    class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <span ng-if="i == 0"><br/><br/></span>
+    </div>
+</div>
+
+<button type="submit"
+        ng-click="preSync()"
+        class="btn btn-primary">
+    <span class="glyphicon glyphicon-refresh">&nbsp;Sync</span>
+</button>

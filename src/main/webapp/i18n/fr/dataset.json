@@ -1,0 +1,53 @@
+{
+    "synctestApp": {
+        "dataset" : {
+            "home": {
+                "title": "Datasets",
+                "createLabel": "Créer un nouveau Dataset",
+                "createOrEditLabel": "Créer ou éditer un Dataset"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Dataset {{ id }} ?"
+            },
+            "detail": {
+                "title": "Dataset"
+            },
+            "study_id": "Study_id",
+            "status_id": "Status_id",
+            "name": "Name",
+            "description": "Description",
+            "sql_statement": "Sql_statement",
+            "num_runs": "Num_runs",
+            "date_start": "Date_start",
+            "date_end": "Date_end",
+            "date_created": "Date_created",
+            "date_updated": "Date_updated",
+            "date_last_run": "Date_last_run",
+            "owner_id": "Owner_id",
+            "approver_id": "Approver_id",
+            "update_id": "Update_id",
+            "show_event_location": "Show_event_location",
+            "show_event_start": "Show_event_start",
+            "show_event_end": "Show_event_end",
+            "show_subject_dob": "Show_subject_dob",
+            "show_subject_gender": "Show_subject_gender",
+            "show_event_status": "Show_event_status",
+            "show_subject_status": "Show_subject_status",
+            "show_subject_unique_id": "Show_subject_unique_id",
+            "show_subject_age_at_event": "Show_subject_age_at_event",
+            "show_crf_status": "Show_crf_status",
+            "show_crf_version": "Show_crf_version",
+            "show_crf_int_name": "Show_crf_int_name",
+            "show_crf_int_date": "Show_crf_int_date",
+            "show_group_info": "Show_group_info",
+            "show_disc_info": "Show_disc_info",
+            "odm_metadataversion_name": "Odm_metadataversion_name",
+            "odm_metadataversion_oid": "Odm_metadataversion_oid",
+            "odm_prior_study_oid": "Odm_prior_study_oid",
+            "odm_prior_metadataversion_oid": "Odm_prior_metadataversion_oid",
+            "show_secondary_id": "Show_secondary_id",
+            "dataset_item_status_id": "Dataset_item_status_id"
+        }
+    }
+}
+
