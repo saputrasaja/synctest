@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="synctestApp.userRole.detail.title">UserRole</span> {{userRole.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.userRole.role_name">Role_name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userRole.role_name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.userRole.parent_id">Parent_id</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userRole.parent_id}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.userRole.role_desc">Role_desc</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{userRole.role_desc}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="userRole"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

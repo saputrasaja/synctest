@@ -29,7 +29,7 @@ public class StudyResource {
 
 	@RequestMapping(value = "/oc/studys", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public List<StudyOC> getStatusFromOC() {
+	public List<StudyOC> getDataFromOC() {
 		List<StudyOC> r = new ArrayList<StudyOC>();
 		try {
 			OcConnect oc = OcConnect

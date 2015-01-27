@@ -1,0 +1,20 @@
+{
+    "synctestApp": {
+        "userRole" : {
+            "home": {
+                "title": "Table UserRole",
+                "createLabel": "Create a new UserRole",
+                "createOrEditLabel": "Create or edit a UserRole"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete UserRole {{ id }}?"
+            },
+            "detail": {
+                "title": "User Role"
+            },
+            "role_name": "Role Name",
+            "parent_id": "Parent Id",
+            "role_desc": "Description"
+        }
+    }
+}

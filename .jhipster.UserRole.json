@@ -1,0 +1,33 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "role_name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Role_name",
+            "fieldNameUnderscored": "role_name"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "parent_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Parent_id",
+            "fieldNameUnderscored": "parent_id"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "role_desc",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Role_desc",
+            "fieldNameUnderscored": "role_desc"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150127112320"
+}
