@@ -20,10 +20,10 @@
             <column name="event_status" type="varchar(255)"/>
             <column name="status" type="varchar(255)"/>
             <column name="date_start" type="timestamp">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="date_end" type="timestamp">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="owner_id" type="integer"/>
         </createTable>
