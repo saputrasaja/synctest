@@ -1,0 +1,195 @@
+<div>
+
+    <h2 translate="synctestApp.studyEvent.home.title">StudyEvent</h2>
+
+<!--     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveStudyEventModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="synctestApp.studyEvent.home.createLabel">Create a new StudyEvent</span>
+    </button> -->
+    <div class="modal fade" id="saveStudyEventModal" tabindex="-1" role="dialog" aria-labelledby="myStudyEventLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myStudyEventLabel" translate="synctestApp.studyEvent.home.createOrEditLabel">Create or edit a StudyEvent</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="studyEvent.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="synctestApp.studyEvent.name">Name</label>
+                            <input type="text" class="form-control"
+                                   ng-model="studyEvent.name">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.studyEvent.label">Label</label>
+                            <input type="text" class="form-control"
+                                   ng-model="studyEvent.label">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.studyEvent.event_status">Event_status</label>
+                            <input type="text" class="form-control"
+                                   ng-model="studyEvent.event_status">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.studyEvent.status">Status</label>
+                            <input type="text" class="form-control"
+                                   ng-model="studyEvent.status">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.studyEvent.date_start">Date_start</label>
+                            <input type="datetime-local" class="form-control"
+                                   ng-model="studyEvent.date_start" ng-model-options="{timezone: 'UTC'}">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.studyEvent.date_end">Date_end</label>
+                            <input type="datetime-local" class="form-control"
+                                   ng-model="studyEvent.date_end" ng-model-options="{timezone: 'UTC'}">
+                        </div>
+                        <div class="form-group">
+                            <label translate="synctestApp.studyEvent.owner_id">Owner_id</label>
+                            <input type="number" class="form-control"
+                                   ng-model="studyEvent.owner_id">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="syncConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title">Synchronization</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            It will synchronize the data in the configuration table.
+                            <br/>
+                            {{diffData[1].length}} rows will be added on synctest.
+                            <br/>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary"
+                            ng-click="doSync()">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Do Sync</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteStudyEventConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(studyEvent.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="synctestApp.studyEvent.delete.question" translate-values="{id: '{{studyEvent.id}}'}">Are you sure you want to delete StudyEvent {{studyEvent.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div ng-repeat="i in array">
+        <button type="submit"
+                ng-click="toggleTable(i)"
+                class="btn btn-info">
+            <span class="glyphicon glyphicon-eye-open">&nbsp;{{toggleText[i]}}</span>
+        </button>
+        &nbsp;{{titleTable[i]}}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th translate="synctestApp.studyEvent.name">Name</th>
+                        <th translate="synctestApp.studyEvent.label">Label</th>
+                        <th translate="synctestApp.studyEvent.event_status">Event_status</th>
+                        <th translate="synctestApp.studyEvent.status">Status</th>
+                        <th translate="synctestApp.studyEvent.date_start">Date_start</th>
+                        <th translate="synctestApp.studyEvent.date_end">Date_end</th>
+                        <th translate="synctestApp.studyEvent.owner_id">Owner_id</th>
+                        <th ng-if="i == 0"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="studyEvent in tableData[i]">
+                        <td><a ui-sref="studyEventDetails({id:studyEvent.id})">{{studyEvent.id}}</a></td>
+                        <td>{{studyEvent.name}}</td>
+                        <td>{{studyEvent.label}}</td>
+                        <td>{{studyEvent.event_status}}</td>
+                        <td>{{studyEvent.status}}</td>
+                        <td>{{studyEvent.date_start}}</td>
+                        <td>{{studyEvent.date_end}}</td>
+                        <td>{{studyEvent.owner_id}}</td>
+                        <td ng-if="i == 0">
+                            <button type="submit"
+                                    ui-sref="studyEventDetail({id:studyEvent.id})"
+                                    class="btn btn-info">
+                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                            </button>
+                            <button type="submit"
+                                    ng-click="update(studyEvent.id)"
+                                    class="btn btn-primary">
+                                <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                            </button>
+                            <button type="submit"
+                                    ng-click="delete(studyEvent.id)"
+                                    class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <span ng-if="i == 0"><br/><br/></span>
+    </div>
+</div>
+
+<button type="submit"
+        ng-click="preSync()"
+        class="btn btn-primary">
+    <span class="glyphicon glyphicon-refresh">&nbsp;Sync</span>
+</button>

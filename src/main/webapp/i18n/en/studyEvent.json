@@ -1,0 +1,24 @@
+{
+    "synctestApp": {
+        "studyEvent" : {
+            "home": {
+                "title": "Study Event",
+                "createLabel": "Create a new StudyEvent",
+                "createOrEditLabel": "Create or edit a StudyEvent"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete StudyEvent {{ id }}?"
+            },
+            "detail": {
+                "title": "StudyEvent"
+            },
+            "name": "Name",
+            "label": "Label",
+            "event_status": "Event Status",
+            "status": "Status",
+            "date_start": "Date Start",
+            "date_end": "Date End",
+            "owner_id": "Owner Id"
+        }
+    }
+}

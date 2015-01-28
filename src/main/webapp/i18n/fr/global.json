@@ -16,6 +16,7 @@
                 "study": "Study",
                 "dataset": "Dataset",
                 "userRole": "UserRole",
+                "studyEvent": "StudyEvent",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {

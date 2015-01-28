@@ -1,0 +1,78 @@
+
+<div>
+    <h2><span translate="synctestApp.studyEvent.detail.title">StudyEvent</span> {{studyEvent.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.studyEvent.name">Name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{studyEvent.name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.studyEvent.label">Label</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{studyEvent.label}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.studyEvent.event_status">Event_status</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{studyEvent.event_status}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.studyEvent.status">Status</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{studyEvent.status}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.studyEvent.date_start">Date_start</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{studyEvent.date_start}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.studyEvent.date_end">Date_end</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{studyEvent.date_end}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="synctestApp.studyEvent.owner_id">Owner_id</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{studyEvent.owner_id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="studyEvent"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

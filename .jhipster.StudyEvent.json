@@ -1,0 +1,61 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Label",
+            "fieldNameUnderscored": "label"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "event_status",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Event_status",
+            "fieldNameUnderscored": "event_status"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "status",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Status",
+            "fieldNameUnderscored": "status"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "date_start",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_start",
+            "fieldNameUnderscored": "date_start"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "date_end",
+            "fieldType": "DateTime",
+            "fieldNameCapitalized": "Date_end",
+            "fieldNameUnderscored": "date_end"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "owner_id",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Owner_id",
+            "fieldNameUnderscored": "owner_id"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": true,
+    "changelogDate": "20150128193254"
+}

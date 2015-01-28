@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('synctestApp')
-    .factory('StudyTypeOC', function ($resource) {
-        return $resource('api/oc/studyTypes', {}, {
+    .factory('StudyEventOC', function ($resource) {
+        return $resource('api/oc/studyEvents', {}, {
             'query': { method: 'GET', isArray: true}
         });
     })
-    .factory('StudyType', function ($resource) {
-        return $resource('api/studyTypes/:id', {}, {
+    .factory('StudyEvent', function ($resource) {
+        return $resource('api/studyEvents/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
