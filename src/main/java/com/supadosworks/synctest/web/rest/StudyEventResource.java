@@ -41,6 +41,7 @@ public class StudyEventResource {
 		sb.append(" se.date_start,");
 		sb.append(" se.date_end,");
 		sb.append(" se.owner_id,");
+		sb.append(" se.location,");
 		sb.append(" se.start_time_flag,");
 		sb.append(" se.end_time_flag");
 		sb.append(" from study_event se");

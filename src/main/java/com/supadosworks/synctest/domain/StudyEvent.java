@@ -41,6 +41,17 @@ public class StudyEvent implements Serializable {
 
     @Column(name = "owner_id")
     private Integer owner_id;
+    
+    @Column(name = "location")
+    private String location;
+    
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
     public Long getId() {
         return id;

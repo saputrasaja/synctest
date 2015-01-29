@@ -150,6 +150,7 @@
                         <th translate="synctestApp.studyEvent.date_start">Date_start</th>
                         <th translate="synctestApp.studyEvent.date_end">Date_end</th>
                         <th translate="synctestApp.studyEvent.owner_id">Owner_id</th>
+                        <th>Location </th>
                         <th ng-if="i == 0"></th>
                     </tr>
                 </thead>
@@ -163,6 +164,7 @@
                         <td>{{studyEvent.date_start}}</td>
                         <td>{{studyEvent.date_end}}</td>
                         <td>{{studyEvent.owner_id}}</td>
+                        <td>{{studyEvent.location}}</td>
                         <td ng-if="i == 0">
                             <button type="submit"
                                     ui-sref="studyEventDetail({id:studyEvent.id})"
@@ -183,6 +185,12 @@
                     </tr>
                 </tbody>
             </table>
+            
+            <div ng-show="tableData[i].length > 0 && i == 0">
+                <button type="submit" class="btn btn-primary" ng-click="downloadICSFile()">
+                    <span class="glyphicon glyphicon-download-alt">&nbsp;Download ICS File</span>
+                </button>
+            </div>
         </div>
         <span ng-if="i == 0"><br/><br/></span>
     </div>

@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.persistence.Column;
+
 public class StudyEventOC extends AbstractOcModel {
 	private Long id;
 
@@ -20,6 +22,16 @@ public class StudyEventOC extends AbstractOcModel {
 	private Date date_end;
 	
     private Integer owner_id;
+    
+    private String location;
+    
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
     
     public StudyEventOC() {
 	}
@@ -97,6 +109,7 @@ public class StudyEventOC extends AbstractOcModel {
 		setDate_start(rs.getDate(6));
 		setDate_end(rs.getDate(7));
 		setOwner_id(rs.getInt(8));
+		setLocation(rs.getString(9));
 	}
 	
 	public static StudyEventOC getDataset(ResultSet rs) throws SQLException {

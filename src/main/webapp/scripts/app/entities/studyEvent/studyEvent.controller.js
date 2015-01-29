@@ -87,6 +87,15 @@ angular.module('synctestApp')
                 });
         };
 
+        $scope.downloadICSFile = function() {
+            var cal = ics();
+            _.each($scope.tableData[0], function(se)
+                {
+                    cal.addEvent(se.name, se.label, se.location, se.date_start, se.date_end);
+                });
+            cal.download('Study Event.ics');
+        };
+
         $scope.create = function () {
             StudyEvent.save($scope.studyEvent,
                 function () {
