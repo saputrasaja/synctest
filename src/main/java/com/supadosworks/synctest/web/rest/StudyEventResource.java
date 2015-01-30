@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.io.OutputStream;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,8 @@ public class StudyEventResource {
 	public void getICSFile(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		DateFormat df = new SimpleDateFormat("yyyyMMdd");
+
 		StringBuilder sb = new StringBuilder();
 		sb.append("BEGIN:VCALENDAR\n");
 		sb.append("VERSION:2.0\n");
@@ -41,8 +45,16 @@ public class StudyEventResource {
 			sb.append("BEGIN:VEVENT\n");
 			sb.append("CLASS:PUBLIC\n");
 			sb.append("DESCRIPTION:" + se.getLabel() + "\n");
-			sb.append("DTSTART;VALUE=DATE" + se.getDate_start().toString() + "\n");
-			sb.append("DTEND;VALUE=DATE" + se.getDate_start().toString() + "\n");
+			String ds = null;
+			if (se.getDate_start() != null) {
+				ds = df.format(se.getDate_start());
+			}
+			sb.append("DTSTART;VALUE=DATE" + ds + "\n");
+			String de = null;
+			if (se.getDate_end() != null) {
+				de = df.format(se.getDate_end());
+			}
+			sb.append("DTEND;VALUE=DATE" + de + "\n");
 			sb.append("LOCATION;" + se.getLocation() + "\n");
 			sb.append("SUMMARY;LANGUAGE=en-us:;" + se.getName() + "\n");
 			sb.append("TRANSP:TRANSPARENT\n");
