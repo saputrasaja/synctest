@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('synctestApp')
-    .controller('StudyEventController', function ($scope, StudyEvent, StudyEventOC) {
+    .controller('StudyEventController', function ($scope, $rootScope, StudyEvent, StudyEventOC) {
+        console.log('rootScope : ', $rootScope);
         var syncService = StudyEvent;
         var ocService = StudyEventOC;
         
@@ -88,12 +89,14 @@ angular.module('synctestApp')
         };
 
         $scope.downloadICSFile = function() {
-            var cal = ics();
-            _.each($scope.tableData[0], function(se)
-                {
-                    cal.addEvent(se.name, se.label, se.location, se.date_start, se.date_end);
-                });
-            cal.download('Study Event.ics');
+            window.open('/api/oc/icsStudyEvents');
+            // var cal = ics();
+            // _.each($scope.tableData[0], function(se)
+            //     {
+            //         cal.addEvent(se.name, se.label, se.location, se.date_start, se.date_end);
+            //     });
+            // cal.download('Study Event');
+
         };
 
         $scope.create = function () {

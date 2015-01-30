@@ -14,8 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +31,45 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class StudyEventResource {
-	
+
+	@RequestMapping(value = "/oc/icsStudyEvents", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public void getICSFile(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("BEGIN:VCALENDAR\n");
+		sb.append("VERSION:2.0\n");
+		for (StudyEvent se : studyEventRepository.findAll()) {
+			sb.append("BEGIN:VEVENT\n");
+			sb.append("CLASS:PUBLIC\n");
+			sb.append("DESCRIPTION:" + se.getLabel() + "\n");
+			sb.append("DTSTART;VALUE=DATE" + se.getDate_start().toString() + "\n");
+			sb.append("DTEND;VALUE=DATE" + se.getDate_start().toString() + "\n");
+			sb.append("LOCATION;" + se.getLocation() + "\n");
+			sb.append("SUMMARY;LANGUAGE=en-us:;" + se.getName() + "\n");
+			sb.append("TRANSP:TRANSPARENT\n");
+			sb.append("END:VEVENT\n");
+		}
+
+		sb.append("END:VCALENDAR");
+
+		response.setContentLength(sb.length());
+
+		response.setHeader("Content-Type", "text/Calendar");
+		response.setHeader("Content-Disposition",
+				"attachment; filename=StudyEvent.ics");
+
+		// get output stream of the response
+		OutputStream outStream = response.getOutputStream();
+
+		// write bytes read from the input stream into the output stream
+
+		outStream.write(sb.toString().getBytes());
+
+		outStream.close();
+	}
+
 	@RequestMapping(value = "/oc/studyEvents", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
 	public List<StudyEventOC> getDataFromOC() {
@@ -50,8 +93,7 @@ public class StudyEventResource {
 		sb.append(" left join study_subject ss on se.study_subject_id = ss.study_subject_id");
 		sb.append(" left join status s on se.status_id = s.status_id;");
 		try {
-			OcConnect oc = OcConnect
-					.getConnection(sb.toString());
+			OcConnect oc = OcConnect.getConnection(sb.toString());
 			ResultSet rs = oc.rs;
 			while (rs.next()) {
 				r.add(StudyEventOC.getDataset(rs));
@@ -78,60 +120,54 @@ public class StudyEventResource {
 		}
 	}
 
-    private final Logger log = LoggerFactory.getLogger(StudyEventResource.class);
+	private final Logger log = LoggerFactory
+			.getLogger(StudyEventResource.class);
 
-    @Inject
-    private StudyEventRepository studyEventRepository;
+	@Inject
+	private StudyEventRepository studyEventRepository;
 
-    /**
-     * POST  /studyEvents -> Create a new studyEvent.
-     */
-    @RequestMapping(value = "/studyEvents",
-            method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public void create(@RequestBody StudyEvent studyEvent) {
-        log.debug("REST request to save StudyEvent : {}", studyEvent);
-        studyEventRepository.save(studyEvent);
-    }
+	/**
+	 * POST /studyEvents -> Create a new studyEvent.
+	 */
+	@RequestMapping(value = "/studyEvents", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public void create(@RequestBody StudyEvent studyEvent) {
+		log.debug("REST request to save StudyEvent : {}", studyEvent);
+		studyEventRepository.save(studyEvent);
+	}
 
-    /**
-     * GET  /studyEvents -> get all the studyEvents.
-     */
-    @RequestMapping(value = "/studyEvents",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public List<StudyEvent> getAll() {
-        log.debug("REST request to get all StudyEvents");
-        return studyEventRepository.findAll();
-    }
+	/**
+	 * GET /studyEvents -> get all the studyEvents.
+	 */
+	@RequestMapping(value = "/studyEvents", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public List<StudyEvent> getAll() {
+		log.debug("REST request to get all StudyEvents");
+		return studyEventRepository.findAll();
+	}
 
-    /**
-     * GET  /studyEvents/:id -> get the "id" studyEvent.
-     */
-    @RequestMapping(value = "/studyEvents/{id}",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<StudyEvent> get(@PathVariable Long id, HttpServletResponse response) {
-        log.debug("REST request to get StudyEvent : {}", id);
-        StudyEvent studyEvent = studyEventRepository.findOne(id);
-        if (studyEvent == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(studyEvent, HttpStatus.OK);
-    }
+	/**
+	 * GET /studyEvents/:id -> get the "id" studyEvent.
+	 */
+	@RequestMapping(value = "/studyEvents/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<StudyEvent> get(@PathVariable Long id,
+			HttpServletResponse response) {
+		log.debug("REST request to get StudyEvent : {}", id);
+		StudyEvent studyEvent = studyEventRepository.findOne(id);
+		if (studyEvent == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(studyEvent, HttpStatus.OK);
+	}
 
-    /**
-     * DELETE  /studyEvents/:id -> delete the "id" studyEvent.
-     */
-    @RequestMapping(value = "/studyEvents/{id}",
-            method = RequestMethod.DELETE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public void delete(@PathVariable Long id) {
-        log.debug("REST request to delete StudyEvent : {}", id);
-        studyEventRepository.delete(id);
-    }
+	/**
+	 * DELETE /studyEvents/:id -> delete the "id" studyEvent.
+	 */
+	@RequestMapping(value = "/studyEvents/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public void delete(@PathVariable Long id) {
+		log.debug("REST request to delete StudyEvent : {}", id);
+		studyEventRepository.delete(id);
+	}
 }
