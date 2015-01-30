@@ -2,7 +2,6 @@
 
 angular.module('synctestApp')
     .controller('StudyEventController', function ($scope, $rootScope, StudyEvent, StudyEventOC) {
-        console.log('rootScope : ', $rootScope);
         var syncService = StudyEvent;
         var ocService = StudyEventOC;
         

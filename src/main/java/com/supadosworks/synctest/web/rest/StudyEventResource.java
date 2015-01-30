@@ -49,14 +49,14 @@ public class StudyEventResource {
 			if (se.getDate_start() != null) {
 				ds = df.format(se.getDate_start());
 			}
-			sb.append("DTSTART;VALUE=DATE" + ds + "\n");
+			sb.append("DTSTART;VALUE=DATE:" + ds + "\n");
 			String de = null;
 			if (se.getDate_end() != null) {
 				de = df.format(se.getDate_end());
 			}
-			sb.append("DTEND;VALUE=DATE" + de + "\n");
-			sb.append("LOCATION;" + se.getLocation() + "\n");
-			sb.append("SUMMARY;LANGUAGE=en-us:;" + se.getName() + "\n");
+			sb.append("DTEND;VALUE=DATE:" + de + "\n");
+			sb.append("LOCATION:" + se.getLocation() + "\n");
+			sb.append("SUMMARY;LANGUAGE=en-us:" + se.getName() + "\n");
 			sb.append("TRANSP:TRANSPARENT\n");
 			sb.append("END:VEVENT\n");
 		}
