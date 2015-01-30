@@ -87,8 +87,8 @@ angular.module('synctestApp')
                 });
         };
 
-        $scope.downloadICSFile = function() {
-            window.open('/api/oc/icsStudyEvents');
+        $scope.downloadICSFile = function(id) {
+            window.open('/api/oc/icsStudyEvents/' + id);
             // var cal = ics();
             // _.each($scope.tableData[0], function(se)
             //     {

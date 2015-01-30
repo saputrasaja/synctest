@@ -169,28 +169,32 @@
                             <button type="submit"
                                     ui-sref="studyEventDetail({id:studyEvent.id})"
                                     class="btn btn-info">
-                                <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <!-- &nbsp;<span translate="entity.action.view"> View</span> -->
                             </button>
                             <button type="submit"
                                     ng-click="update(studyEvent.id)"
                                     class="btn btn-primary">
-                                <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <!-- &nbsp;<span translate="entity.action.edit"> Edit</span> -->
                             </button>
                             <button type="submit"
                                     ng-click="delete(studyEvent.id)"
                                     class="btn btn-danger">
-                                <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <!-- &nbsp;<span translate="entity.action.delete"> Delete</span> -->
                             </button>
+                            <div ng-show="studyEvent.date_start != null && studyEvent.date_end != null">
+                                <button type="submit" class="btn btn-primary" ng-click="downloadICSFile(studyEvent.id)">
+                                    <span class="glyphicon glyphicon-download-alt">
+                                        <!-- &nbsp;Download ICS File -->
+                                    </span>
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            
-            <div ng-show="tableData[i].length > 0 && i == 0">
-                <button type="submit" class="btn btn-primary" ng-click="downloadICSFile()">
-                    <span class="glyphicon glyphicon-download-alt">&nbsp;Download ICS File</span>
-                </button>
-            </div>
         </div>
         <span ng-if="i == 0"><br/><br/></span>
     </div>

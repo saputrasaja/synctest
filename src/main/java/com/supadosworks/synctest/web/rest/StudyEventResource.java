@@ -1,28 +1,33 @@
 package com.supadosworks.synctest.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import com.oc.connection.OcConnect;
-import com.oc.model.StudyEventHelper;
-import com.oc.model.StudyEventOC;
-import com.supadosworks.synctest.domain.StudyEvent;
-import com.supadosworks.synctest.repository.StudyEventRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import java.io.OutputStream;
 import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.codahale.metrics.annotation.Timed;
+import com.oc.connection.OcConnect;
+import com.oc.model.StudyEventHelper;
+import com.oc.model.StudyEventOC;
+import com.supadosworks.synctest.domain.StudyEvent;
+import com.supadosworks.synctest.repository.StudyEventRepository;
 
 /**
  * REST controller for managing StudyEvent.
@@ -31,20 +36,19 @@ import java.util.List;
 @RequestMapping("/api")
 public class StudyEventResource {
 
-	@RequestMapping(value = "/oc/icsStudyEvents", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/oc/icsStudyEvents/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public void getICSFile(HttpServletRequest request,
+	public void getICSFile(@PathVariable Long id, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		DateFormat df = new SimpleDateFormat("yyyyMMdd");
+		StudyEvent se = studyEventRepository.findOne(id);
+		if (se != null
+				&& (se.getDate_start() != null || se.getDate_end() != null)) {
+			DateFormat df = new SimpleDateFormat("yyyyMMdd");
+			StringBuilder sb = new StringBuilder();
+			sb.append("BEGIN:VCALENDAR\n");
+			sb.append("VERSION:2.0\n");
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("BEGIN:VCALENDAR\n");
-		sb.append("VERSION:2.0\n");
-		for (StudyEvent se : studyEventRepository.findAll()) {
-			if (se.getDate_end() == null || se.getDate_start() == null) {
-				continue;
-			}
 			sb.append("BEGIN:VEVENT\n");
 			sb.append("CLASS:PUBLIC\n");
 			sb.append("DESCRIPTION:" + se.getLabel() + "\n");
@@ -55,27 +59,69 @@ public class StudyEventResource {
 			de = df.format(se.getDate_end());
 			sb.append("DTEND;VALUE=DATE:" + de + "\n");
 			sb.append("LOCATION:" + se.getLocation() + "\n");
-			sb.append("SUMMARY;LANGUAGE=en-us:" + se.getName() + "\n");
+			sb.append("SUMMARY;LANGUAGE=en-us:" + se.getId() + " - "
+					+ se.getName() + "\n");
 			sb.append("TRANSP:TRANSPARENT\n");
 			sb.append("END:VEVENT\n");
+
+			sb.append("END:VCALENDAR");
+
+			response.setContentLength(sb.length());
+
+			response.setHeader("Content-Type", "text/Calendar");
+			response.setHeader("Content-Disposition",
+					"attachment; filename=StudyEvent-" + + se.getId() + ".ics");
+
+			// get output stream of the response
+			OutputStream outStream = response.getOutputStream();
+
+			// write bytes read from the input stream into the output stream
+
+			outStream.write(sb.toString().getBytes());
+
+			outStream.close();
 		}
 
-		sb.append("END:VCALENDAR");
-
-		response.setContentLength(sb.length());
-
-		response.setHeader("Content-Type", "text/Calendar");
-		response.setHeader("Content-Disposition",
-				"attachment; filename=StudyEvent.ics");
-
-		// get output stream of the response
-		OutputStream outStream = response.getOutputStream();
-
-		// write bytes read from the input stream into the output stream
-
-		outStream.write(sb.toString().getBytes());
-
-		outStream.close();
+		// DateFormat df = new SimpleDateFormat("yyyyMMdd");
+		//
+		// StringBuilder sb = new StringBuilder();
+		// sb.append("BEGIN:VCALENDAR\n");
+		// sb.append("VERSION:2.0\n");
+		// for (StudyEvent se : studyEventRepository.findAll()) {
+		// if (se.getDate_end() == null || se.getDate_start() == null) {
+		// continue;
+		// }
+		// sb.append("BEGIN:VEVENT\n");
+		// sb.append("CLASS:PUBLIC\n");
+		// sb.append("DESCRIPTION:" + se.getLabel() + "\n");
+		// String ds = null;
+		// ds = df.format(se.getDate_start());
+		// sb.append("DTSTART;VALUE=DATE:" + ds + "\n");
+		// String de = null;
+		// de = df.format(se.getDate_end());
+		// sb.append("DTEND;VALUE=DATE:" + de + "\n");
+		// sb.append("LOCATION:" + se.getLocation() + "\n");
+		// sb.append("SUMMARY;LANGUAGE=en-us:" + se.getName() + "\n");
+		// sb.append("TRANSP:TRANSPARENT\n");
+		// sb.append("END:VEVENT\n");
+		// }
+		//
+		// sb.append("END:VCALENDAR");
+		//
+		// response.setContentLength(sb.length());
+		//
+		// response.setHeader("Content-Type", "text/Calendar");
+		// response.setHeader("Content-Disposition",
+		// "attachment; filename=StudyEvent.ics");
+		//
+		// // get output stream of the response
+		// OutputStream outStream = response.getOutputStream();
+		//
+		// // write bytes read from the input stream into the output stream
+		//
+		// outStream.write(sb.toString().getBytes());
+		//
+		// outStream.close();
 	}
 
 	@RequestMapping(value = "/oc/studyEvents", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
