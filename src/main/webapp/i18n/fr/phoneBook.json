@@ -1,0 +1,22 @@
+{
+    "synctestApp": {
+        "phoneBook" : {
+            "home": {
+                "title": "PhoneBooks",
+                "createLabel": "Créer un nouveau PhoneBook",
+                "createOrEditLabel": "Créer ou éditer un PhoneBook"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le PhoneBook {{ id }} ?"
+            },
+            "detail": {
+                "title": "PhoneBook"
+            },
+            "name": "Name",
+            "phone_number": "Phone_number",
+            "address": "Address",
+            "email": "Email"
+        }
+    }
+}
+

@@ -1,0 +1,40 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "phone_number",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Phone_number",
+            "fieldNameUnderscored": "phone_number"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "address",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Address",
+            "fieldNameUnderscored": "address"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Email",
+            "fieldNameUnderscored": "email"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150202115814"
+}
