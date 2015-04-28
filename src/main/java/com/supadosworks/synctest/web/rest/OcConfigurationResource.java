@@ -46,7 +46,7 @@ public class OcConfigurationResource {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-        response.addHeader("Access-Control-Allow-Origin", "*");
+//        response.addHeader("Access-Control-Allow-Origin", "*");
 		return results;
 	}
 
