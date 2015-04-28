@@ -6,6 +6,15 @@ angular.module('synctestApp')
         $scope.loadAll = function() {
             PhoneBook.query(function(result) {
                $scope.phoneBooks = result;
+
+                console.log("start : ", freeboard);
+                freeboard.initialize(true);
+                
+                $.get("http://localhost/test/freeboard/freeboard/dashboard-one.json", function(data) {
+                    freeboard.loadDashboard(data, function() {
+                        freeboard.setEditing(false);
+                    });
+                });
             });
         };
         $scope.loadAll();

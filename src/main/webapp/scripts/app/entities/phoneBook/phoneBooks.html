@@ -2,10 +2,38 @@
 
     <h2 translate="synctestApp.phoneBook.home.title">PhoneBook</h2>
 
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#savePhoneBookModal" ng-click="clear()">
+    <div id="board-content">
+        <div class="gridster responsive-column-width">
+            <ul data-bind="grid: true">
+            </ul>
+        </div>
+    </div>
+    <div id="main-header" >
+
+    </div>
+
+    <div style="display:hidden">
+        <ul data-bind="template: { name: 'pane-template', foreach: panes}">
+        </ul>
+    </div>
+
+    <script type="text/html" id="pane-template">
+        <li data-bind="pane: true">
+            <header>
+                <h1 data-bind="text: title"></h1>
+            </header>
+            <section data-bind="foreach: widgets">
+                <div class="sub-section" data-bind="css: 'sub-section-height-' + height()">
+                    <div class="widget" data-bind="widget: true, css:{fillsize:fillSize}"></div>
+                </div>
+            </section>
+        </li>
+    </script>
+
+<!--     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#savePhoneBookModal" ng-click="clear()">
         <span class="glyphicon glyphicon-flash"></span> <span translate="synctestApp.phoneBook.home.createLabel">Create a new PhoneBook</span>
-    </button>
-    <div class="modal fade" id="savePhoneBookModal" tabindex="-1" role="dialog" aria-labelledby="myPhoneBookLabel"
+    </button> -->
+<!--     <div class="modal fade" id="savePhoneBookModal" tabindex="-1" role="dialog" aria-labelledby="myPhoneBookLabel"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -59,9 +87,9 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="modal fade" id="deletePhoneBookConfirmation">
+<!--     <div class="modal fade" id="deletePhoneBookConfirmation">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form name="form" ng-submit="confirmDelete(phoneBook.id)">
@@ -84,9 +112,9 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="table-responsive">
+<!--     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -125,5 +153,5 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
 </div>

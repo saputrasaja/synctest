@@ -32,7 +32,7 @@ public class OcConfigurationResource {
 
 	@RequestMapping(value = "/oc/configurations", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public List<Configuration> getOcConf() {
+	public List<Configuration> getOcConf(HttpServletResponse response) {
 
 		List<Configuration> results = new ArrayList<Configuration>();
 		try {
@@ -46,6 +46,7 @@ public class OcConfigurationResource {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+        response.addHeader("Access-Control-Allow-Origin", "*");
 		return results;
 	}
 

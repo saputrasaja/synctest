@@ -80,7 +80,6 @@ angular.module('synctestApp')
             syncService.saveMany(data, 
                 function(){
                     $scope.loadAll();
-                    $scope.clear();
                     $('#syncConfirmation').modal('hide');
                 });
         };
@@ -90,7 +89,6 @@ angular.module('synctestApp')
                 function () {
                     $scope.loadAll();
                     $('#saveStatusModal').modal('hide');
-                    $scope.clear();
                 });
         };
 
@@ -109,11 +107,6 @@ angular.module('synctestApp')
                 function () {
                     $scope.loadAll();
                     $('#deleteStatusConfirmation').modal('hide');
-                    $scope.clear();
                 });
-        };
-
-        $scope.clear = function () {
-            $scope.status = {name: null, description: null, id: null};
         };
     });
